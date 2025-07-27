@@ -1,0 +1,145 @@
+/* ============================
+  공통 컨테이너 스타일
+============================ */
+.intro-container,
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    /* 검정 배경 */
+    animation: fadeIn 1s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 1;
+}
+
+.intro-container.fade-out {
+    opacity: 0;
+}
+
+/* ============================
+  로고 이미지 애니메이션
+============================ */
+.intro-logo {
+    width: 480px;
+    height: auto;
+    animation:
+        zoomIn 1.5s ease-in-out,
+        blink 2s infinite,
+        glitch 0.3s infinite;
+}
+
+/* ============================
+  깜빡이는 애니메이션 (blink)
+============================ */
+@keyframes blink {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    70% {
+        opacity: 0.1;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+}
+
+/* ============================
+  흔들리는 애니메이션 (glitch)
+============================ */
+@keyframes glitch {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    10% {
+        transform: translate(-2px, 1px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(2px, -2px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(-1px, 1px) rotate(0);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    60% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    70% {
+        transform: translate(1px, 2px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-2px, 0) rotate(0);
+    }
+
+    90% {
+        transform: translate(0, -1px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+/* ============================
+  텍스트 등장용 애니메이션
+============================ */
+.fade-in-text {
+    color: white;
+    font-size: 2rem;
+    animation: fadeText 1.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeText {
+    to {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* ============================
+  전체 화면 페이드인 효과
+============================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
