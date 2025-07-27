@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import IntroRoute from './main/IntroRoute';
-import Home from './pages/Home';
-import ErrorPage from './pages/ErrorPage';
+import IntroRoute from './Intro/IntroRoute';
+import Home from './Home/Home';
+import ErrorPage from './Home/ErrorPage';
+import ProfileMain from './Home/Profile/profileMain';
+import ProfileDetail from './Home/Profile/ProfileDetail';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Route path="/" element={<IntroRoute />} />
         <Route path="/home" element={<Home />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/profile" element={<ProfileMain />} />
+        <Route path="/profile/:name" element={<ProfileDetail />} />
       </Routes>
     </Router>
   );
