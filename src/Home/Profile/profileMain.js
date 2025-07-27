@@ -6,35 +6,35 @@ const agencies = [
     {
         name: 'STARMAKER PRODUCTION',
         teams: [
-            { name: 'fine', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID1' },
-            { name: 'trickstar', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID2' },
-            { name: '유성대', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID3' },
-            { name: '알칼로이드', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID4' },
+            { name: 'fine', image: `${process.env.PUBLIC_URL}/logoFile/10100_fine.png` },
+            { name: 'trickstar', image: `${process.env.PUBLIC_URL}/logoFile/10200_Trickstar.png` },
+            { name: '유성대', image: `${process.env.PUBLIC_URL}/logoFile/10300_유성대.png` },
+            { name: '알칼로이드', image: `${process.env.PUBLIC_URL}/logoFile/10400_ALKALOID.png` },
         ],
     },
     {
         name: 'COSMIC PRODUCTION',
         teams: [
-            { name: 'Eden', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID5' },
-            { name: '발키리', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID6' },
-            { name: '트윙크', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID7' },
-            { name: '크레이지비', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID8' },
+            { name: 'Eden', image: `${process.env.PUBLIC_URL}/logoFile/20100_Eden.png` },
+            { name: '발키리', image: `${process.env.PUBLIC_URL}/logoFile/20200_Valkyrie.png` },
+            { name: '트윙크', image: `${process.env.PUBLIC_URL}/logoFile/20300_2wink.png` },
+            { name: '크레이지비', image: `${process.env.PUBLIC_URL}/logoFile/20400_CrazyB.png` },
         ],
     },
     {
         name: 'Rhythm Link',
         teams: [
-            { name: '언데드', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID9' },
-            { name: '라빗츠', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID10' },
-            { name: '홍월', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID11' },
+            { name: '언데드', image: `${process.env.PUBLIC_URL}/logoFile/30100_UNDEAD.png` },
+            { name: '라빗츠', image: `${process.env.PUBLIC_URL}/logoFile/30200_Rabits.png` },
+            { name: '홍월', image: `${process.env.PUBLIC_URL}/logoFile/30300_홍월.png` },
         ],
     },
     {
         name: 'NEW DIMENSION',
         teams: [
-            { name: '나이츠', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID12' },
-            { name: '스위치', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID13' },
-            { name: '마무', image: 'https://drive.google.com/uc?export=view&id=YOUR_FILE_ID14' },
+            { name: '나이츠', image: `${process.env.PUBLIC_URL}/logoFile/40100_Knights.png` },
+            { name: '스위치', image: `${process.env.PUBLIC_URL}/logoFile/40200_Switch.png` },
+            { name: '마무', image:  `${process.env.PUBLIC_URL}/logoFile/40300_MaM.png` },
         ],
     },
 ];

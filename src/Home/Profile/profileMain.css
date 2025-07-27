@@ -1,103 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
-
+/* 전체 배경 및 텍스트 스타일 */
 .profile-container {
     background-color: #000;
     color: #fff;
-    min-height: 100vh;
     padding: 2rem;
     font-family: 'IM Fell English SC', serif;
+    min-height: 100vh;
 }
 
+/* 타이틀 */
 .creepy-title {
-    font-size: 2.2rem;
-    color: #ff4444;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 3rem;
-    text-shadow: 0 0 6px #660000, 0 0 12px #220000;
+    color: #ff3c3c;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px #600;
 }
 
-/* 소속사 구역 */
-.agency-block {
-    margin-bottom: 3rem;
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.agency-name {
-    font-size: 1.6rem;
-    color: #ff4444;
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
-    border-left: 4px solid #aa4444;
-    text-shadow: 0 0 4px #440000;
-}
-
-/* 카드 그리드 */
+/* 카드 그리드: 반응형 자동 정렬 */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
 }
 
-/* 카드 개별 */
+/* 각 카드 스타일 */
 .profile-card {
     background-color: #111;
-    border: 1px solid #aa4444;
+    border: 1px solid #ff4d4d;
     border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 6px #220000;
+    padding: 1rem;
+    width: 100%;
+    max-width: 180px;
+    height: 200px;
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .profile-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 12px #ff2222;
-    background-color: #1a0000;
 }
 
-/* 이미지 */
+/* 이미지 스타일 */
 .profile-image {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    filter: brightness(0.85);
-    transition: filter 0.3s;
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 0.75rem;
 }
 
-.profile-card:hover .profile-image {
-    filter: brightness(1);
-}
-
-/* 이름 */
+/* 이름 텍스트 */
 .profile-name {
-    padding: 0.8rem;
-    font-size: 1.1rem;
-    color: #e0dcdc;
-    text-shadow: 0 0 4px #aa0000;
-    font-family: 'IM Fell English SC', serif;
-}
-
-/* 반응형 */
-@media (max-width: 600px) {
-    .creepy-title {
-        font-size: 1.6rem;
-    }
-
-    .profile-name {
-        font-size: 1rem;
-    }
-
-    .profile-image {
-        height: 120px;
-    }
-
-    .agency-name {
-        font-size: 1.3rem;
-    }
+    display: none;
+    font-size: 1rem;
+    text-align: center;
+    color: #f8f8f8;
+    text-shadow: 0 0 2px #ff4d4d;
 }

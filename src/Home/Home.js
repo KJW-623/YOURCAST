@@ -31,7 +31,7 @@ const Home = () => {
                 <div className="widget-card" onClick={() => navigate('/profile')}>
                     👥
                 </div>
-                <div className="widget-card">📜</div>
+                <div className="widget-card" onClick={() => navigate('/guideline')}>📜</div>
             </div>
         </div>
     );
