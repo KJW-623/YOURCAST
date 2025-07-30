@@ -2,6 +2,26 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProfileDetail.css';
 
+// 🔽 팀 이름별 로고 이미지 파일 매핑
+const TEAM_LOGOS = {
+    fine: "fine.png",
+    Trickstar: "Trickstar.png",
+    유성대: "유성대.png",
+    ALKALOID: "ALKALOID.png",
+    Eden: "Eden.png",
+    Valkyrie: "Valkyrie.png",
+    Twink: "Twink.png",
+    CrazyB: "CrazyB.png",
+    UNDEAD: "UNDEAD.png",
+    Rabits: "Rabits.png",
+    홍월: "홍월.png",
+    Knights: "Knights.png",
+    Switch: "Switch.png",
+    MaM: "MaM.png"
+};
+
+
+
 const TEAM_DATA = {
     fine: [
         {
@@ -15,26 +35,26 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/10102_히비키 와타루(2).png`
         },
         {
+            name: '히메미야 토리',
+            imageDefault: `${process.env.PUBLIC_URL}/standing/10103_히메미야 토리(1).png`,
+            imageHover: `${process.env.PUBLIC_URL}/standing/10103_히메미야 토리(2).png`
+        },
+        {
             name: '후시미 유즈루',
             imageDefault: `${process.env.PUBLIC_URL}/standing/10104_후시미 유즈루(1).png`,
             imageHover: `${process.env.PUBLIC_URL}/standing/10104_후시미 유즈루(2).png`
         },
-        {
-            name: '히메미야 토리',
-            imageDefault: `${process.env.PUBLIC_URL}/standing/10103_히메미야 토리(1).png`,
-            imageHover: `${process.env.PUBLIC_URL}/standing/10103_히메미야 토리(2).png`
-        }
     ],
-    trickstar: [
-        {
-            name: '아케호시 스바루',
-            imageDefault: `${process.env.PUBLIC_URL}/standing/10202_아케호시 스바루(1).png`,
-            imageHover: `${process.env.PUBLIC_URL}/standing/10202_아케호시 스바루(2).png`
-        },
+    Trickstar: [
         {
             name: '히다카 호쿠토',
             imageDefault: `${process.env.PUBLIC_URL}/standing/10201_히다카 호쿠토(1).png`,
             imageHover: `${process.env.PUBLIC_URL}/standing/10201_히다카 호쿠토(2).png`
+        },
+        {
+            name: '아케호시 스바루',
+            imageDefault: `${process.env.PUBLIC_URL}/standing/10202_아케호시 스바루(1).png`,
+            imageHover: `${process.env.PUBLIC_URL}/standing/10202_아케호시 스바루(2).png`
         },
         {
             name: '유우키 마코토',
@@ -74,7 +94,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/10305_센고쿠 시노부(2).png`
         }
     ],
-    알칼로이드: [
+    ALKALOID: [
         {
             name: '아마기 히이로',
             imageDefault: `${process.env.PUBLIC_URL}/standing/10401_아마기 히이로(1).png`,
@@ -86,15 +106,15 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/10402_시라토리 아이라(2).png`
         },
         {
-            name: '카제하야 타츠미',
-            imageDefault: `${process.env.PUBLIC_URL}/standing/10403_카제하야 타츠미(1).png`,
-            imageHover: `${process.env.PUBLIC_URL}/standing/10403_카제하야 타츠미(2).png`
+            name: '아야세 마요이',
+            imageDefault: `${process.env.PUBLIC_URL}/standing/10403_아야세 마요이(1).png`,
+            imageHover: `${process.env.PUBLIC_URL}/standing/10403_아야세 마요이(2).png`
         },
         {
-            name: '아야세 마요이',
-            imageDefault: `${process.env.PUBLIC_URL}/standing/10404_아야세 마요이(1).png`,
-            imageHover: `${process.env.PUBLIC_URL}/standing/10404_아야세 마요이(2).png`
-        }
+            name: '카제하야 타츠미',
+            imageDefault: `${process.env.PUBLIC_URL}/standing/10404_카제하야 타츠미(1).png`,
+            imageHover: `${process.env.PUBLIC_URL}/standing/10404_카제하야 타츠미(2).png`
+        },
     ],
     Eden: [
         {
@@ -119,7 +139,7 @@ const TEAM_DATA = {
         }
     ],
 
-    발키리: [
+    Valkyrie: [
         {
             name: '이츠키 슈',
             imageDefault: `${process.env.PUBLIC_URL}/standing/20201_이츠키 슈(1).png`,
@@ -132,7 +152,7 @@ const TEAM_DATA = {
         }
     ],
 
-    트윙크: [
+    Twink: [
         {
             name: '아오이 히나타',
             imageDefault: `${process.env.PUBLIC_URL}/standing/20301_아오이 히나타(1).png`,
@@ -146,7 +166,7 @@ const TEAM_DATA = {
     ],
 
 
-    크레이지비: [
+    CrazyB: [
         {
             name: '아마기 린네',
             imageDefault: `${process.env.PUBLIC_URL}/standing/20401_아마기 린네(1).png`,
@@ -168,7 +188,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/20404_시이나 니키(2).png`
         }
     ],
-    언데드: [
+    UNDEAD: [
         {
             name: '사쿠마 레이',
             imageDefault: `${process.env.PUBLIC_URL}/standing/30101_사쿠마 레이(1).png`,
@@ -190,7 +210,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/30104_오토가리 아도니스(2).png`
         }
     ],
-    라빗츠: [
+    Rabits: [
         {
             name: '마시로 토모야',
             imageDefault: `${process.env.PUBLIC_URL}/standing/30201_마시로  토모야(1).png`,
@@ -229,7 +249,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/30303_칸자키 소마(2).png`
         }
     ],
-    나이츠: [
+    Knights: [
         {
             name: '스오우 츠카사',
             imageDefault: `${process.env.PUBLIC_URL}/standing/40101_스오우 츠카사(1).png`,
@@ -256,7 +276,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/40105_나루카미 아라시(2).png`
         }
     ],
-    스위치: [
+    Switch: [
         {
             name: '사카사키 나츠메',
             imageDefault: `${process.env.PUBLIC_URL}/standing/40201_사카사키 나츠메(1).png`,
@@ -273,7 +293,7 @@ const TEAM_DATA = {
             imageHover: `${process.env.PUBLIC_URL}/standing/40203_하루카와 소라(2).png`
         }
     ],
-    마무: [
+    MaM: [
         {
             name: '미케지마 마다라',
             imageDefault: `${process.env.PUBLIC_URL}/standing/40301_미케지마 마다라(1).png`,
@@ -288,7 +308,16 @@ const ProfileDetail = () => {
 
     return (
         <div className="detail-wrapper">
-            <h1 className="detail-title">{name}</h1>
+            {/* 팀 로고 이미지 (파일명 매칭된 경우만 출력) */}
+            {TEAM_LOGOS[name] && (
+                <img
+                    src={`${process.env.PUBLIC_URL}/logoFile/${TEAM_LOGOS[name]}`}
+                    alt={name}
+                    className="team-title-image"
+                />
+            )}
+
+            {/* 멤버 카드 목록 */}
             <div className="team-scroll">
                 {team.map((member, idx) => (
                     <HoverImageCard key={idx} member={member} />
@@ -298,7 +327,7 @@ const ProfileDetail = () => {
     );
 };
 
-// 🔽 이미지 hover 교체를 위한 컴포넌트 분리
+// 🔽 멤버 hover 시 이미지 변경 컴포넌트
 const HoverImageCard = ({ member }) => {
     const [hovered, setHovered] = useState(false);
 

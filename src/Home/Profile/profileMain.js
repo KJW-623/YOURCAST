@@ -6,35 +6,35 @@ const agencies = [
     {
         name: 'STARMAKER PRODUCTION',
         teams: [
-            { name: 'fine', image: `${process.env.PUBLIC_URL}/logoFile/10100_fine.png` },
-            { name: 'trickstar', image: `${process.env.PUBLIC_URL}/logoFile/10200_Trickstar.png` },
-            { name: '유성대', image: `${process.env.PUBLIC_URL}/logoFile/10300_유성대.png` },
-            { name: '알칼로이드', image: `${process.env.PUBLIC_URL}/logoFile/10400_ALKALOID.png` },
+            { name: 'fine', image: `${process.env.PUBLIC_URL}/logoFile/fine.png` },
+            { name: 'Trickstar', image: `${process.env.PUBLIC_URL}/logoFile/Trickstar.png` },
+            { name: '유성대', image: `${process.env.PUBLIC_URL}/logoFile/유성대.png` },
+            { name: 'ALKALOID', image: `${process.env.PUBLIC_URL}/logoFile/ALKALOID.png` },
         ],
     },
     {
         name: 'COSMIC PRODUCTION',
         teams: [
-            { name: 'Eden', image: `${process.env.PUBLIC_URL}/logoFile/20100_Eden.png` },
-            { name: '발키리', image: `${process.env.PUBLIC_URL}/logoFile/20200_Valkyrie.png` },
-            { name: '트윙크', image: `${process.env.PUBLIC_URL}/logoFile/20300_2wink.png` },
-            { name: '크레이지비', image: `${process.env.PUBLIC_URL}/logoFile/20400_CrazyB.png` },
+            { name: 'Eden', image: `${process.env.PUBLIC_URL}/logoFile/Eden.png` },
+            { name: 'Valkyrie', image: `${process.env.PUBLIC_URL}/logoFile/Valkyrie.png` },
+            { name: 'Twink', image: `${process.env.PUBLIC_URL}/logoFile/Twink.png` },
+            { name: 'CrazyB', image: `${process.env.PUBLIC_URL}/logoFile/CrazyB.png` },
         ],
     },
     {
         name: 'Rhythm Link',
         teams: [
-            { name: '언데드', image: `${process.env.PUBLIC_URL}/logoFile/30100_UNDEAD.png` },
-            { name: '라빗츠', image: `${process.env.PUBLIC_URL}/logoFile/30200_Rabits.png` },
-            { name: '홍월', image: `${process.env.PUBLIC_URL}/logoFile/30300_홍월.png` },
+            { name: 'UNDEAD', image: `${process.env.PUBLIC_URL}/logoFile/UNDEAD.png` },
+            { name: 'Rabits', image: `${process.env.PUBLIC_URL}/logoFile/Rabits.png` },
+            { name: '홍월', image: `${process.env.PUBLIC_URL}/logoFile/홍월.png` },
         ],
     },
     {
         name: 'NEW DIMENSION',
         teams: [
-            { name: '나이츠', image: `${process.env.PUBLIC_URL}/logoFile/40100_Knights.png` },
-            { name: '스위치', image: `${process.env.PUBLIC_URL}/logoFile/40200_Switch.png` },
-            { name: '마무', image:  `${process.env.PUBLIC_URL}/logoFile/40300_MaM.png` },
+            { name: 'Knights', image: `${process.env.PUBLIC_URL}/logoFile/Knights.png` },
+            { name: 'Switch', image: `${process.env.PUBLIC_URL}/logoFile/Switch.png` },
+            { name: 'MaM', image:  `${process.env.PUBLIC_URL}/logoFile/MaM.png` },
         ],
     },
 ];
