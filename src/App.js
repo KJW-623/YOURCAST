@@ -4,7 +4,8 @@ import Home from './Home/Home';
 import ErrorPage from './Home/ErrorPage';
 import ProfileMain from './Home/Profile/profileMain';
 import ProfileDetail from './Home/Profile/ProfileDetail';
-import GuidelineMain from './Home/Guideline/GuidelineMain';
+import ManualIntro from './Home/manual/ManualIntro';
+import ManualMain from './Home/manual/ManualMain';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/profile" element={<ProfileMain />} />
         <Route path="/profile/:name" element={<ProfileDetail />} />
-        <Route path="/guideline" element={<GuidelineMain />} />
+        <Route path="/manual-intro" element={<ManualIntro />} />
+        <Route path="/manual" element={<ManualMain />} />
       </Routes>
     </Router>
   );

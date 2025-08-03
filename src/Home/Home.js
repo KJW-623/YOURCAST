@@ -25,13 +25,17 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <div className="creepy-clock">{time}</div>
-
-            <div className="widget-grid">
-                <div className="widget-card" onClick={() => navigate('/profile')}>
-                    👥
+            <div className="clock-wrapper">
+                <span className="clock-bracket left">[ </span>
+                <div className="clock-box">
+                    <span className="clock-text">{time}</span>
                 </div>
-                <div className="widget-card" onClick={() => navigate('/guideline')}>📜</div>
+                <span className="clock-bracket right"> ]</span>
+            </div>
+            <br></br>
+            <div className="widget-grid">
+                <div className="widget-card" onClick={() => navigate('/profile')}>Character</div>
+                <div className="widget-card" onClick={() => navigate('/manual-intro')}>Manual</div>
             </div>
         </div>
     );
