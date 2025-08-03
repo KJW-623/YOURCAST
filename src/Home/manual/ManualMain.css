@@ -39,16 +39,18 @@
 }
 
 .floor-button {
-  padding: 6px 14px;
+  padding: 0.8vh 3vw;
   font-family: 'IM Fell English SC', serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.7rem, 1.1vw, 1.2rem);
   color: #fff;
-  background-color: #1a2a2f; /* 어두운 청록/남색 느낌 */
-  border: 2px solid #8de0ff;
-  border-radius: 20px;
+  background-color: #1a2a2f;
+  border: 0.3vh solid #8de0ff;
+  border-radius: 2vw;
   cursor: pointer;
-  box-shadow: 0 0 8px #8de0ff;
+  box-shadow: 0 0 0.8vw #8de0ff;
   white-space: nowrap;
+  max-width: 30vw;
+  text-align: center;
   transition: 0.2s ease;
 }
 
