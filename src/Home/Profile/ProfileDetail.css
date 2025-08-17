@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* 또는 center로 바꾸면 완전 세로 가운데 */
+    justify-content: flex-start;
+    /* 또는 center로 바꾸면 완전 세로 가운데 */
     padding-top: 6vh;
     padding-bottom: 3vh;
     background-color: #000;
@@ -59,7 +60,34 @@
 .person-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;     /* 박스 채우기 */
-    object-position: center; /* 얼굴 중앙 유지 */
+    object-fit: cover;
+    /* 박스 채우기 */
+    object-position: center;
+    /* 얼굴 중앙 유지 */
     display: block;
+}
+
+.back-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.back-button {
+    background: linear-gradient(to top, #222, #444);
+    border: 2px solid #666;
+    color: #eee;
+    font-family: 'IM Fell English SC', serif;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-shadow: 0 0 6px #ff0000;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(to top, #444, #666);
+    transform: translateY(-4px);
+    box-shadow: 0 0 12px #aa0000;
 }

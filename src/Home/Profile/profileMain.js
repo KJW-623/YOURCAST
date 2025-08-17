@@ -34,7 +34,7 @@ const agencies = [
         teams: [
             { name: 'Knights', image: `${process.env.PUBLIC_URL}/logoFile/Knights.png` },
             { name: 'Switch', image: `${process.env.PUBLIC_URL}/logoFile/Switch.png` },
-            { name: 'MaM', image:  `${process.env.PUBLIC_URL}/logoFile/MaM.png` },
+            { name: 'MaM', image: `${process.env.PUBLIC_URL}/logoFile/MaM.png` },
         ],
     },
 ];
@@ -56,6 +56,9 @@ const ProfileMain = () => {
                                 key={mIdx}
                                 className="profile-card"
                                 onClick={() => navigate(`/profile/${member.name}`)}
+                                role="button"
+                                tabIndex={0}
+                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && navigate(`/profile/${member.name}`)}
                             >
                                 <img src={member.image} alt={member.name} className="profile-image" />
                                 <span className="profile-name">{member.name}</span>
@@ -64,6 +67,18 @@ const ProfileMain = () => {
                     </div>
                 </div>
             ))}
+
+            {/* ── 엘리베이터 홈 버튼 ─────────────────────── */}
+            <div className="elev-home-wrap" aria-hidden="false">
+                <button
+                    className="elev-home-btn"
+                    onClick={() => navigate('/home')}
+                    aria-label="홈으로 이동"
+                >
+                    <span className="elev-dot" aria-hidden="true"></span>
+                    <span className="elev-label">이전 위치로 돌아가기</span>
+                </button>
+            </div>
         </div>
     );
 };
