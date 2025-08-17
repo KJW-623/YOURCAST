@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/YOURCAST/static/css/main.688cc8a3.css",
+    "main.js": "/YOURCAST/static/js/main.323e000c.js",
+    "static/js/453.e313ed35.chunk.js": "/YOURCAST/static/js/453.e313ed35.chunk.js",
+    "index.html": "/YOURCAST/index.html",
+    "main.688cc8a3.css.map": "/YOURCAST/static/css/main.688cc8a3.css.map",
+    "main.323e000c.js.map": "/YOURCAST/static/js/main.323e000c.js.map",
+    "453.e313ed35.chunk.js.map": "/YOURCAST/static/js/453.e313ed35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.688cc8a3.css",
+    "static/js/main.323e000c.js"
+  ]
+}
