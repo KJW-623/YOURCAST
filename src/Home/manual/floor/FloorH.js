@@ -9,15 +9,17 @@ export default function FloorH() {
     const timers = useRef([]);
     const navigate = useNavigate();
 
-    useEffect(() => () => { timers.current.forEach(clearTimeout); }, []);
+    useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
     const press = () => {
         if (locking) return;
         setLocking(true);
         setSelected('H');
         setOpen(true);
-        // TODO: navigate('/manual/h/hall')
-        timers.current.push(setTimeout(() => { setOpen(false); setLocking(false); }, 1000));
+        timers.current.push(
+            setTimeout(() => navigate('/manual/h/h'), 600),   // 허브로 이동
+            setTimeout(() => { setOpen(false); setLocking(false); }, 1200)
+        );
     };
 
     return (
@@ -29,19 +31,16 @@ export default function FloorH() {
                     <span className="current-floor">{selected ? `>> ${selected}` : '대기 중'}</span>
                 </div>
 
-                {/* 중앙 고정 정렬 */}
                 <div className="elev-buttons centered" style={{ '--cols': 1 }}>
                     <button className="elev-btn" onClick={press} disabled={locking} aria-label="H">H</button>
                 </div>
 
-                <div className="elev-controls" aria-hidden="true">
-                    <button className="ctrl-btn">▲</button><button className="ctrl-btn">▼</button><button className="ctrl-btn alarm">●</button>
+                <div className="elev-doors" aria-hidden="true">
+                    <div className="door left" /><div className="door right" />
                 </div>
-
-                <div className="elev-doors" aria-hidden="true"><div className="door left" /><div className="door right" /></div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인으로</button>
+            <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인</button>
         </div>
     );
 }
