@@ -70,7 +70,7 @@ export default function Floor15to20() {
         <div className="elev-page">
             <div className={`elev-panel ${open ? 'doors-open' : ''}`} style={{ padding: '30px 36px 32px' }}>
                 <div className="elev-display">
-                    <span className="elev-range">어디로 이동하시겠습니까?</span>
+                    <span className="elev-range">조심해...</span>
                     <span className="elev-indicator" />
                     <span className="current-floor">{selected ? `>> ${selected}F` : '대기 중'}</span>
                 </div>

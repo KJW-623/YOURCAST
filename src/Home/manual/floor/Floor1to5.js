@@ -49,7 +49,7 @@ export default function Floor1to5() {
         <div className="elev-page">
             <div className={`elev-panel ${open ? 'doors-open' : ''}`}>
                 <div className="elev-display" role="region" aria-label="1~5층 엘리베이터 패널">
-                    <span className="elev-range">어디로 이동하시겠습니까?</span>
+                    <span className="elev-range">조심해...</span>
                     <span className="elev-indicator" />
                     <span className="current-floor" aria-live="polite">
                         {selected ? `>> ${selected}F` : '대기 중'}
