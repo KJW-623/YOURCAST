@@ -1,5 +1,5 @@
 import React from 'react';
-import './profileMain.css';
+import './ProfileMain.css';
 import { useNavigate } from 'react-router-dom';
 
 const agencies = [
