@@ -15,8 +15,8 @@ export default function Floor7Hub() {
 
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/6f/7/office')}>
-                        <div className="hub-title">뉴디멘션 사무실</div>
-                        <div className="hub-sub">업무 구역 / 야간 소등 주의</div>
+                        <div className="hub-title">NEW DIMENSION</div>
+                        <div className="hub-sub">시청 주의</div>
                     </button>
 
                     <button className="hub-card" onClick={() => navigate('/manual/6f/7/clinic')}>
