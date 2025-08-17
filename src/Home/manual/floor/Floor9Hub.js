@@ -14,8 +14,8 @@ export default function Floor9Hub() {
 
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/9f/9/dance')}>
-                        <div className="hub-title">댄스룸</div>
-                        <div className="hub-sub">거울 잔상 / 박자 어긋남</div>
+                        <div className="hub-title">댄스룸 밀집구역</div>
+                        <div className="hub-sub">인지 왜곡 / 거울 주의</div>
                     </button>
                 </div>
             </div>
