@@ -14,8 +14,8 @@ export default function Floor20Hub() {
 
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/15f/20/office')}>
-                        <div className="hub-title">STARMAKER PRODUCTION 사무실</div>
-                        <div className="hub-sub">문서 / 관리자</div>
+                        <div className="hub-title">STARMAKER PRODUCTION</div>
+                        <div className="hub-sub">접근 금지</div>
                     </button>
                     <button className="hub-card" onClick={() => navigate('/manual/15f/20/reception')}>
                         <div className="hub-title">응접실</div>
