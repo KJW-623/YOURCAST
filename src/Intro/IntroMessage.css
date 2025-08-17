@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
-/* 배경 지지직 효과 */
+/* ─────────────────────────────────────────
+   배경 지지직 효과
+   ───────────────────────────────────────── */
 .glitch-background {
     height: 100vh;
     display: flex;
@@ -14,6 +16,8 @@
     animation: backgroundNoise 0.25s infinite;
     position: relative;
     cursor: pointer;
+    padding: 0 4vw;
+    /* 양 옆 아주 살짝 여유 */
 }
 
 @keyframes backgroundNoise {
@@ -30,13 +34,12 @@
     }
 }
 
-/* 시작 전 오버레이 */
+/* ─────────────────────────────────────────
+   시작 전 오버레이
+   ───────────────────────────────────────── */
 .start-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(5, 5, 5, 0.85);
     display: flex;
     justify-content: center;
@@ -45,8 +48,13 @@
 
 .start-text {
     color: #ccc;
-    font-size: 1.4rem;
     font-family: 'IM Fell English SC', serif;
+    /* 줄바꿈 없이 크기만 유동 조절 */
+    font-size: clamp(14px, 2.5vw, 22px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 92vw;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
     animation: blinkText 1.5s infinite;
 }
@@ -63,21 +71,30 @@
     }
 }
 
-/* 글씨 스타일 */
+/* ─────────────────────────────────────────
+   본문 텍스트(타이핑)
+   ───────────────────────────────────────── */
 .creepy-text {
     font-family: 'IM Fell English SC', serif;
-    font-size: 2.4rem;
+    /* 줄바꿈 없이 크기만 유동 조절 */
+    font-size: clamp(20px, 4vw, 38px);
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 92vw;
     color: #e1dcdc;
     text-shadow:
         0 0 4px #aa0000,
         0 0 8px #440000;
-    white-space: pre-wrap;
-    text-align: center;
 }
 
 /* 커서 */
 .typing-text::after {
     content: '|';
+    /* 글자 크기와 함께 자연스럽게 스케일되도록 inherit */
+    font-size: inherit;
+    line-height: 1;
     animation: blinkCursor 1.5s infinite;
     color: #ff4444;
     margin-left: 4px;
@@ -95,10 +112,12 @@
     }
 }
 
-/* 노이즈 글자 */
+/* 노이즈 글자(타이핑 중 섞여 나오는 랜덤 문자) */
 .noise-char {
     color: #a94444;
     font-weight: bold;
+    font-size: inherit;
+    /* 본문 글자 크기에 동기화 */
     animation: glitchJitter 0.4s infinite;
 }
 
@@ -116,5 +135,22 @@
     100% {
         transform: translateX(0);
         opacity: 0.8;
+    }
+}
+
+/* ─────────────────────────────────────────
+   접근성: 모션 축소 환경에서 애니메이션 약화
+   ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .glitch-background {
+        animation: none;
+    }
+
+    .typing-text::after {
+        animation: none;
+    }
+
+    .start-text {
+        animation: none;
     }
 }

@@ -12,6 +12,8 @@
     animation: fadeIn 1s ease-in-out;
     transition: opacity 1.5s ease-in-out;
     opacity: 1;
+    padding: 0 4vw;
+    /* 양 옆 여백 살짝 */
 }
 
 .intro-container.fade-out {
@@ -19,15 +21,37 @@
 }
 
 /* ============================
-  로고 이미지 애니메이션
+  로고 이미지 (반응형) + 애니메이션
 ============================ */
 .intro-logo {
-    width: 480px;
+    /* 화면 크기에 따라 자동 조정: 최소 180, 선호 40vw, 최대 480 */
+    width: clamp(180px, 40vw, 480px);
     height: auto;
+
+    /* 확대/깜빡임/글리치 */
     animation:
         zoomIn 1.5s ease-in-out,
         blink 2s infinite,
         glitch 0.3s infinite;
+    /* 이미지 넘침 방지 */
+    max-width: 92vw;
+}
+
+/* ============================
+  텍스트 등장용 (반응형 글꼴)
+============================ */
+.fade-in-text {
+    color: white;
+    /* 2rem 고정 → 유동형으로 변경 */
+    font-size: clamp(16px, 3.2vw, 32px);
+    animation: fadeText 1.5s ease-in-out forwards;
+    opacity: 0;
+
+    /* 줄바꿈 대신 크기 축소 우선 */
+    white-space: nowrap;
+    max-width: 92vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ============================
@@ -115,15 +139,8 @@
 }
 
 /* ============================
-  텍스트 등장용 애니메이션
+  텍스트 페이드 인
 ============================ */
-.fade-in-text {
-    color: white;
-    font-size: 2rem;
-    animation: fadeText 1.5s ease-in-out forwards;
-    opacity: 0;
-}
-
 @keyframes fadeText {
     to {
         opacity: 1;
@@ -141,5 +158,24 @@
 
     to {
         opacity: 1;
+    }
+}
+
+/* ============================
+  접근성: 모션 축소 환경
+============================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .intro-container,
+    .message-container {
+        animation: none;
+    }
+
+    .intro-logo {
+        animation: none;
+    }
+
+    .fade-in-text {
+        animation: none;
     }
 }
