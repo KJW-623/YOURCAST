@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
+div {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+
 body {
     margin: 0;
     background-color: #000;
@@ -45,11 +54,13 @@ body {
 }
 
 .clock-bracket.left {
-  left: calc(50% - 8rem);  /* 기존보다 더 왼쪽으로 */
+    left: calc(50% - 8rem);
+    /* 기존보다 더 왼쪽으로 */
 }
 
 .clock-bracket.right {
-  right: calc(50% - 8rem); /* 기존보다 더 오른쪽으로 */
+    right: calc(50% - 8rem);
+    /* 기존보다 더 오른쪽으로 */
 }
 
 @keyframes clockFlicker {

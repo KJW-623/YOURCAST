@@ -1,6 +1,15 @@
 /* ============================
   공통 컨테이너 스타일
 ============================ */
+div {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+
 .intro-container,
 .message-container {
     display: flex;
