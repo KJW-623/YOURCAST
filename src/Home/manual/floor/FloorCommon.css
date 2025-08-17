@@ -332,3 +332,42 @@
         width: 100%;
     }
 }
+
+/* 패널 기본 여백 변수 */
+.elev-panel {
+    --panel-pad-x: 22px;
+    /* 좌우 여백 */
+    --panel-pad-y: 28px;
+    /* 상하 여백 */
+    padding: var(--panel-pad-y) var(--panel-pad-x);
+}
+
+/* 버튼 크기/간격 변수 */
+.elev-buttons {
+    --btn-size: 76px;
+    /* 원형 버튼 지름 */
+    --btn-gap: 24px;
+    /* 버튼 사이 간격 */
+    gap: var(--btn-gap);
+}
+
+.elev-btn {
+    width: var(--btn-size);
+    height: var(--btn-size);
+}
+
+/* (선택) 중앙 그리드가 좌우에 붙지 않도록 보강 */
+.elev-buttons.centered {
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .elev-page .elev-panel {
+        --panel-pad-x: 28px;
+    }
+
+    .elev-page .elev-buttons {
+        --btn-size: 60px;
+        --btn-gap: 14px;
+    }
+}
