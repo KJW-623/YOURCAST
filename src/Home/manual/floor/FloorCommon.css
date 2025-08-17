@@ -31,9 +31,7 @@
 
 * {
     box-sizing: border-box;
-}
 
-div {
     -webkit-touch-callout: none;
     user-select: none;
     -moz-user-select: none;
@@ -410,4 +408,37 @@ div {
     }
 
     /* 버튼/간격도 이미 clamp로 유동 → 추가 튜닝 최소화 */
+}
+
+.hub-strike {
+    color: #888;
+    /* 회색 */
+    text-decoration: line-through;
+    /* 취소선 */
+    margin-right: 4px;
+    /* 글자 간격 */
+}
+
+.hub-white {
+    color: #fff;
+    /* 흰색 */
+}
+
+.manual-doc ol {
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+    list-style-type: decimal;
+    /* 1, 2, 3... */
+}
+
+.manual-doc li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    text-align: left;
+    /* 왼쪽 정렬 */
+}
+
+.danger-quote {
+  color: #d32f2f;        /* 진한 빨강 */
+  font-weight: bold;     /* 굵게 */
 }

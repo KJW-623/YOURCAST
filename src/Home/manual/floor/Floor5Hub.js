@@ -20,8 +20,8 @@ export default function Floor5Hub() {
                     </button>
 
                     <button className="hub-card" onClick={() => navigate('/manual/1f/5/library')}>
-                        <div className="hub-title">대도구실도서관</div>
-                        <div className="hub-sub">변이된 도서관 / 인지 왜곡</div>
+                        <div className="hub-title">대도구실</div>
+                        <div className="hub-sub">변이된 공간 / 인지 왜곡</div>
                     </button>
                 </div>
             </div>
