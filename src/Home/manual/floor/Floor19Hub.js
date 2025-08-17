@@ -15,7 +15,7 @@ export default function Floor19Hub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/15f/19/resting')}>
                         <div className="hub-title">레스팅룸</div>
-                        <div className="hub-sub">휴식 공간 / 저소음</div>
+                        <div className="hub-sub">외부 음식물 반입금지</div>
                     </button>
                 </div>
             </div>
