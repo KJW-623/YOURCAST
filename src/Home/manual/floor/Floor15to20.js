@@ -9,15 +9,35 @@ export default function Floor15to20() {
     const timers = useRef([]);
     const navigate = useNavigate();
 
-    useEffect(() => () => { timers.current.forEach(clearTimeout); }, []);
+    // 타이머 정리
+    useEffect(() => {
+        return () => {
+            timers.current.forEach(clearTimeout);
+            timers.current = [];
+        };
+    }, []);
 
     const press = (f) => {
         if (locking) return;
         setLocking(true);
         setSelected(f);
         setOpen(true);
-        // TODO: navigate(`/manual/15f/${f}`)
-        timers.current.push(setTimeout(() => { setOpen(false); setLocking(false); }, 1000));
+
+        // 600ms 후 해당 층 허브로 이동 (16,17은 App.js에서 ErrorPage로 매핑됨)
+        timers.current.push(
+            setTimeout(() => navigate(`/manual/15f/${f}`), 600),
+            setTimeout(() => {
+                setOpen(false);
+                setLocking(false);
+            }, 1200)
+        );
+    };
+
+    const onKeyDown = (e, f) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            press(f);
+        }
     };
 
     return (
@@ -29,20 +49,32 @@ export default function Floor15to20() {
                     <span className="current-floor">{selected ? `>> ${selected}F` : '대기 중'}</span>
                 </div>
 
-                {/* 중앙 고정 정렬 (쏠림 해결) */}
+                {/* 중앙 고정 정렬 */}
                 <div className="elev-buttons centered" style={{ '--cols': 6 }}>
-                    {[15, 16, 17, 18, 19, 20].map(f => (
-                        <button key={f} className="elev-btn" onClick={() => press(f)} disabled={locking} aria-label={`${f}층`}>
+                    {[15, 16, 17, 18, 19, 20].map((f) => (
+                        <button
+                            key={f}
+                            className="elev-btn"
+                            onClick={() => press(f)}
+                            onKeyDown={(e) => onKeyDown(e, f)}
+                            disabled={locking}
+                            aria-label={`${f}층`}
+                        >
                             {f}
                         </button>
                     ))}
                 </div>
 
                 <div className="elev-controls" aria-hidden="true">
-                    <button className="ctrl-btn">▲</button><button className="ctrl-btn">▼</button><button className="ctrl-btn alarm">●</button>
+                    <button className="ctrl-btn">▲</button>
+                    <button className="ctrl-btn">▼</button>
+                    <button className="ctrl-btn alarm">●</button>
                 </div>
 
-                <div className="elev-doors" aria-hidden="true"><div className="door left" /><div className="door right" /></div>
+                <div className="elev-doors" aria-hidden="true">
+                    <div className="door left" />
+                    <div className="door right" />
+                </div>
             </div>
 
             <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인으로</button>
