@@ -49,6 +49,17 @@ const ManualMain = () => {
           <div className="floor-button" onClick={() => navigate('/manual/H')}> H </div>
         </div>
       </div>
+
+      {/* ── 🔽 엘리베이터 홈 버튼 ─────────────────────── */}
+      <div className="elev-home-wrap">
+        <button
+          className="elev-home-btn"
+          onClick={() => navigate('/home')}   // 바로 이전 위치로 이동
+        >
+          <span className="elev-dot"></span>
+          <span className="elev-label">이전 위치로 돌아가기</span>
+        </button>
+      </div>
     </div>
   );
 };

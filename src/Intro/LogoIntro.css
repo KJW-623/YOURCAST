@@ -9,18 +9,20 @@ div {
     -webkit-user-select: none;
 }
 
-
 .intro-container,
 .message-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height -> min-height: 100svh 로 교체 (모바일 주소창 이슈 완화) */
+    min-height: 100svh;
     background-color: #000;
-    /* 검정 배경 */
     animation: fadeIn 1s ease-in-out;
     transition: opacity 1.5s ease-in-out;
     opacity: 1;
+    padding: 0 4vw;
+    /* 좌우 여유 */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .intro-container.fade-out {
@@ -28,15 +30,46 @@ div {
 }
 
 /* ============================
-  로고 이미지 애니메이션
+  로고 이미지 애니메이션 (반응형 보강)
 ============================ */
 .intro-logo {
+    /* 가로는 뷰포트 기반 유동, 세로는 화면 높이의 절반 넘지 않도록 제한 */
     width: clamp(180px, 40vw, 480px);
     height: auto;
+    max-height: 50svh;
+    /* 화면 절반보다 크지 않게 */
+    image-rendering: -webkit-optimize-contrast;
+
     animation:
         zoomIn 1.5s ease-in-out,
         blink 2s infinite,
         glitch 0.3s infinite;
+}
+
+/* 작은 화면에선 살짝 아래로 내려 체감 중앙 맞춤 + 더 작은 로고 */
+@media (max-width: 768px) {
+    .intro-container {
+        align-items: flex-start;
+        /* 위 기준으로 정렬 */
+        padding-top: clamp(18svh, 24svh, 28svh);
+        /* 화면 위에서 살짝 내려 배치 */
+    }
+
+    .intro-logo {
+        width: clamp(160px, 56vw, 420px);
+        max-height: 44svh;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-container {
+        padding-top: clamp(22svh, 28svh, 32svh);
+    }
+
+    .intro-logo {
+        width: clamp(150px, 62vw, 380px);
+        max-height: 40svh;
+    }
 }
 
 /* ============================
@@ -128,9 +161,14 @@ div {
 ============================ */
 .fade-in-text {
     color: white;
-    font-size: 2rem;
+    /* 고정 2rem 대신 반응형 글꼴 */
+    font-size: clamp(16px, 3.2vw, 32px);
     animation: fadeText 1.5s ease-in-out forwards;
     opacity: 0;
+    white-space: nowrap;
+    max-width: 92vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @keyframes fadeText {
