@@ -38,7 +38,7 @@ export default function FloorHHelipad() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/h/h')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/h/h')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

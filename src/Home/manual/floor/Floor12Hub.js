@@ -26,8 +26,7 @@ export default function Floor12Hub() {
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
-                <button className="back-link" onClick={() => navigate('/manual/9f')}>← 9~12F 패널</button>
-                <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인</button>
+                <button className="back-link" onClick={() => navigate('/manual/9f')}>← 이전 위치로 돌아가기</button>
             </div>
         </div>
     );

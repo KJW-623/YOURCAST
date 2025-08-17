@@ -34,7 +34,7 @@ export default function Floor15Stand() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/15f/15')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/15f/15')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

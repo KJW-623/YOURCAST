@@ -66,7 +66,7 @@ export default function Floor9to12() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인으로</button>
+            <button className="back-link" onClick={() => navigate('/manual')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

@@ -40,7 +40,7 @@ export default function FloorB1Backstage() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/b1/b1')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/b1/b1')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

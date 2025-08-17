@@ -39,8 +39,7 @@ export default function Floor1Lobby() {
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
-                <button className="back-link" onClick={() => navigate('/manual/1f/1')}>← 1F 허브</button>
-                <button className="back-link" onClick={() => navigate('/manual/1f')}>← 1~5F 패널</button>
+                <button className="back-link" onClick={() => navigate('/manual/1f/1')}>← 이전 위치로 돌아가기</button>
             </div>
         </div>
     );

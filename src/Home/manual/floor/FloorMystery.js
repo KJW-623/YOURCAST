@@ -53,7 +53,7 @@ export default function FloorMystery() {
                 <div className="elev-doors" aria-hidden="true"><div className="door left" /><div className="door right" /></div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인으로</button>
+            <button className="back-link" onClick={() => navigate('/manual')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

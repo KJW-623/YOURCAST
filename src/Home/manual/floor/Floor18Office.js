@@ -34,7 +34,7 @@ export default function Floor18Office() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/15f/18')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/15f/18')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

@@ -114,8 +114,7 @@ export default function Floor5Learn() {
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
-                <button className="back-link" onClick={() => navigate('/manual/1f/5')}>← 5F 복도</button>
-                <button className="back-link" onClick={() => navigate('/manual/1f')}>← 1~5F 패널</button>
+                <button className="back-link" onClick={() => navigate('/manual/1f/5')}>← 이전 위치로 돌아가기</button>
             </div>
         </div>
     );

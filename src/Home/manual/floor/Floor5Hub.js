@@ -27,7 +27,7 @@ export default function Floor5Hub() {
             </div>
 
             <button className="back-link" onClick={() => navigate('/manual/1f')}>
-                ← 1~5F 패널로
+                ← 이전 위치로 돌아가기
             </button>
         </div>
     );

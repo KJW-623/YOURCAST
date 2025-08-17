@@ -35,8 +35,7 @@ export default function Floor7Clinic() {
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
-                <button className="back-link" onClick={() => navigate('/manual/6f/7')}>← 7F 허브</button>
-                <button className="back-link" onClick={() => navigate('/manual/6f')}>← 6~8F 패널</button>
+                <button className="back-link" onClick={() => navigate('/manual/6f/7')}>← 이전 위치로 돌아가기</button>
             </div>
         </div>
     );

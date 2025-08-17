@@ -84,7 +84,7 @@ export default function Floor1to5() {
             </div>
 
             <button className="back-link" onClick={() => navigate('/manual')}>
-                ← 매뉴얼 메인으로
+                ← 이전 위치로 돌아가기
             </button>
         </div>
     );

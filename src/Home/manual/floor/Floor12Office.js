@@ -37,7 +37,7 @@ export default function Floor12Office() {
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/9f/12')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/9f/12')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }

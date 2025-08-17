@@ -25,7 +25,7 @@ export default function Floor10Cafeteria() {
                     </div>
                 </div>
             </div>
-            <button className="back-link" onClick={() => navigate('/manual/9f/10')}>← 허브로</button>
+            <button className="back-link" onClick={() => navigate('/manual/9f/10')}>← 이전 위치로 돌아가기</button>
         </div>
     );
 }
