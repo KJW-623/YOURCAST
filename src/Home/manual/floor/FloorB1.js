@@ -9,15 +9,27 @@ export default function FloorB1() {
     const timers = useRef([]);
     const navigate = useNavigate();
 
-    useEffect(() => () => { timers.current.forEach(clearTimeout); }, []);
+    useEffect(() => {
+        return () => {
+            timers.current.forEach(clearTimeout);
+            timers.current = [];
+        };
+    }, []);
 
     const press = () => {
         if (locking) return;
         setLocking(true);
         setSelected('B1');
         setOpen(true);
-        // TODO: navigate('/manual/b1/room')
-        timers.current.push(setTimeout(() => { setOpen(false); setLocking(false); }, 1000));
+
+        // 문 열림 후 허브로 이동
+        timers.current.push(
+            setTimeout(() => navigate('/manual/b1/b1'), 600),  // 허브 이동
+            setTimeout(() => {
+                setOpen(false);
+                setLocking(false);
+            }, 1200) // 도어 리셋
+        );
     };
 
     return (
@@ -29,19 +41,33 @@ export default function FloorB1() {
                     <span className="current-floor">{selected ? `>> ${selected}` : '대기 중'}</span>
                 </div>
 
-                {/* 중앙 고정 정렬 */}
+                {/* 버튼 하나만 중앙 정렬 */}
                 <div className="elev-buttons centered" style={{ '--cols': 1 }}>
-                    <button className="elev-btn" onClick={press} disabled={locking} aria-label="B1">B1</button>
+                    <button
+                        className="elev-btn"
+                        onClick={press}
+                        disabled={locking}
+                        aria-label="B1"
+                    >
+                        B1
+                    </button>
                 </div>
 
                 <div className="elev-controls" aria-hidden="true">
-                    <button className="ctrl-btn">▲</button><button className="ctrl-btn">▼</button><button className="ctrl-btn alarm">●</button>
+                    <button className="ctrl-btn up">▲</button>
+                    <button className="ctrl-btn down">▼</button>
+                    <button className="ctrl-btn alarm">●</button>
                 </div>
 
-                <div className="elev-doors" aria-hidden="true"><div className="door left" /><div className="door right" /></div>
+                <div className="elev-doors" aria-hidden="true">
+                    <div className="door left" />
+                    <div className="door right" />
+                </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual')}>← 매뉴얼 메인으로</button>
+            <button className="back-link" onClick={() => navigate('/manual')}>
+                ← 매뉴얼 메인으로
+            </button>
         </div>
     );
 }

@@ -3,10 +3,11 @@ import IntroRoute from './Intro/IntroRoute';
 import Home from './Home/Home';
 import ErrorPage from './Home/ErrorPage';
 
-// ⬇️ 대소문자 일치 (파일명이 ProfileMain.js 라면 이렇게)
+// Profile (PascalCase)
 import ProfileMain from './Home/Profile/ProfileMain';
 import ProfileDetail from './Home/Profile/ProfileDetail';
 
+// Manual main
 import ManualIntro from './Home/manual/ManualIntro';
 import ManualMain from './Home/manual/ManualMain';
 
@@ -15,7 +16,6 @@ import Floor1to5 from './Home/manual/floor/Floor1to5';
 import Floor6to8 from './Home/manual/floor/Floor6to8';
 import Floor9to12 from './Home/manual/floor/Floor9to12';
 import Floor15to20 from './Home/manual/floor/Floor15to20';
-import FloorB1 from './Home/manual/floor/FloorB1';
 import FloorH from './Home/manual/floor/FloorH';
 import FloorMystery from './Home/manual/floor/FloorMystery';
 
@@ -46,6 +46,13 @@ import Floor8Shower from './Home/manual/floor/Floor8Shower';
 import Floor8Band from './Home/manual/floor/Floor8Band';
 import Floor8MiniStudio from './Home/manual/floor/Floor8MiniStudio';
 
+// ── B1 그룹 & 허브 & 세부 ────────────────────────
+import FloorB1 from './Home/manual/floor/FloorB1';               // 엘리베이터 버튼
+import FloorB1Hub from './Home/manual/floor/FloorB1Hub';         // 허브
+import FloorB1Lobby from './Home/manual/floor/FloorB1Lobby';     // 상세
+import FloorB1LiveStage from './Home/manual/floor/FloorB1LiveStage';
+import FloorB1Backstage from './Home/manual/floor/FloorB1Backstage';
+
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -62,36 +69,23 @@ function App() {
 
         {/* ── 1~5F ───────────────────────────────── */}
         <Route path="/manual/1f" element={<Floor1to5 />} />
-
-        {/* 1F: 허브 → (로비/카페) */}
         <Route path="/manual/1f/1" element={<Floor1Hub />} />
         <Route path="/manual/1f/1/lobby" element={<Floor1Lobby />} />
         <Route path="/manual/1f/1/cafe" element={<Floor1Cafe />} />
-
-        {/* 5F: 허브 → (배움터/도서관) */}
         <Route path="/manual/1f/5" element={<Floor5Hub />} />
         <Route path="/manual/1f/5/learn" element={<Floor5Learn />} />
         <Route path="/manual/1f/5/library" element={<Floor5Library />} />
-
-        {/* ⚠️ 2,3,4층: 미구현 → ErrorPage */}
-        <Route path="/manual/1f/:floor" element={<ErrorPage />} />
+        <Route path="/manual/1f/:floor" element={<ErrorPage />} /> {/* 2,3,4 미구현 */}
 
         {/* ── 6~8F ───────────────────────────────── */}
         <Route path="/manual/6f" element={<Floor6to8 />} />
-
-        {/* 6F */}
         <Route path="/manual/6f/6" element={<Floor6Hub />} />
         <Route path="/manual/6f/6/wardrobe" element={<Floor6Wardrobe />} />
-
-        {/* 7F */}
         <Route path="/manual/6f/7" element={<Floor7Hub />} />
         <Route path="/manual/6f/7/office" element={<Floor7Office />} />
         <Route path="/manual/6f/7/clinic" element={<Floor7Clinic />} />
-
-        {/* ✅ 호환용: 과거 경로로 들어오면 clinic으로 안내 */}
+        {/* 인퍼머리 → 클리닉 호환 */}
         <Route path="/manual/6f/7/infirmary" element={<Navigate to="/manual/6f/7/clinic" replace />} />
-
-        {/* 8F */}
         <Route path="/manual/6f/8" element={<Floor8Hub />} />
         <Route path="/manual/6f/8/recording" element={<Floor8Recording />} />
         <Route path="/manual/6f/8/vocal" element={<Floor8Vocal />} />
@@ -99,13 +93,22 @@ function App() {
         <Route path="/manual/6f/8/band" element={<Floor8Band />} />
         <Route path="/manual/6f/8/ministudio" element={<Floor8MiniStudio />} />
 
-        {/* ── 기타 층들 ─────────────────────────── */}
+        {/* ── 9F+, H, Mystery ────────────────────── */}
         <Route path="/manual/9f" element={<Floor9to12 />} />
         <Route path="/manual/15f" element={<Floor15to20 />} />
-        <Route path="/manual/b1" element={<FloorB1 />} />
         <Route path="/manual/h" element={<FloorH />} />
-        {/* 경로 명확성을 원하면 /manual/mystery 로 바꾸는 것도 추천 */}
         <Route path="/manual/mis" element={<FloorMystery />} />
+
+        {/* ── B1: 엘리베이터 → 허브 → 상세 ───────── */}
+        <Route path="/manual/b1" element={<FloorB1 />} />                   {/* 엘리베이터 버튼 페이지 */}
+        <Route path="/manual/b1/b1" element={<FloorB1Hub />} />             {/* 허브 */}
+        <Route path="/manual/b1/b1/lobby" element={<FloorB1Lobby />} />
+        <Route path="/manual/b1/b1/livestage" element={<FloorB1LiveStage />} />
+        <Route path="/manual/b1/b1/backstage" element={<FloorB1Backstage />} />
+        {/* 예전 경로로 접근 시 호환 리다이렉트 */}
+        <Route path="/manual/b1/lobby" element={<Navigate to="/manual/b1/b1/lobby" replace />} />
+        <Route path="/manual/b1/livestage" element={<Navigate to="/manual/b1/b1/livestage" replace />} />
+        <Route path="/manual/b1/backstage" element={<Navigate to="/manual/b1/b1/backstage" replace />} />
 
         {/* 마지막 와일드카드 */}
         <Route path="*" element={<ErrorPage />} />
