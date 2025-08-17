@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProfileDetail.css';
 
-
 const TEAM_LOGOS = {
     fine: "fine.png",
     Trickstar: "Trickstar.png",
@@ -21,7 +20,7 @@ const TEAM_LOGOS = {
 };
 
 const TEAM_DATA = {
-    /* ── 네가 넣어둔 TEAM_DATA 그대로 ── */
+    /* ── 네 데이터 그대로 ── */
     fine: [
         { name: '텐쇼인 에이치', imageDefault: `${process.env.PUBLIC_URL}/standing/10101_텐쇼인 에이치(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/10101_텐쇼인 에이치(2).png` },
         { name: '히비키 와타루', imageDefault: `${process.env.PUBLIC_URL}/standing/10102_히비키 와타루(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/10102_히비키 와타루(2).png` },
@@ -106,6 +105,12 @@ const ProfileDetail = () => {
     const navigate = useNavigate();
     const team = TEAM_DATA[name] || [];
 
+    // ✅ 회색/노이즈 처리 대상
+    const MUTED_SET = new Set(['히비키 와타루']);
+
+    // ✅ 글리치 처리 대상 (원하면 여기서 멤버 추가/삭제)
+    const GLITCH_SET = new Set(['히비키 와타루']);
+
     const goBackOrMain = () => {
         if (window.history.length > 1) navigate(-1);
         else navigate('/profileMain');
@@ -113,7 +118,7 @@ const ProfileDetail = () => {
 
     return (
         <div className="detail-wrapper">
-            {/* 팀 로고 이미지 (파일명 매칭된 경우만 출력) */}
+            {/* 팀 로고 */}
             {TEAM_LOGOS[name] && (
                 <img
                     src={`${process.env.PUBLIC_URL}/logoFile/${TEAM_LOGOS[name]}`}
@@ -125,11 +130,16 @@ const ProfileDetail = () => {
             {/* 멤버 카드 목록 */}
             <div className="team-scroll">
                 {team.map((member, idx) => (
-                    <HoverImageCard key={idx} member={member} />
+                    <HoverImageCard
+                        key={idx}
+                        member={member}
+                        muted={MUTED_SET.has(member.name)}
+                        hasGlitch={GLITCH_SET.has(member.name)}
+                    />
                 ))}
             </div>
 
-            {/* ── 멤버 카드 바로 아래: 엘리베이터 홈 버튼(프로필 메인과 동일한 모양) ── */}
+            {/* 엘리베이터 홈 버튼 */}
             <div className="elev-home-wrap" aria-hidden="false">
                 <button
                     className="elev-home-btn"
@@ -144,17 +154,32 @@ const ProfileDetail = () => {
     );
 };
 
-// 🔽 멤버 hover 시 이미지 변경 컴포넌트
-const HoverImageCard = ({ member }) => {
+// 멤버 hover 시 이미지 변경 + (옵션)글리치
+const HoverImageCard = ({ member, muted = false, hasGlitch = false }) => {
     const [hovered, setHovered] = useState(false);
+
+    // muted면 호버 무시하고 이미지 고정
+    const src = muted
+        ? member.imageDefault
+        : (hovered ? member.imageHover : member.imageDefault);
 
     return (
         <div
-            className="person-card"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            className={`person-card ${muted ? 'is-muted' : ''} ${hasGlitch ? 'has-glitch' : ''}`}
+            onMouseEnter={() => !muted && setHovered(true)}
+            onMouseLeave={() => !muted && setHovered(false)}
+            style={muted ? { cursor: 'default', pointerEvents: 'auto' } : undefined}
         >
-            <img src={hovered ? member.imageHover : member.imageDefault} alt={member.name} />
+            <div className="glitch-wrap">
+                <img className="base" src={src} alt={member.name} />
+                {/* 글리치가 켜진 카드만 채널 분리 레이어 렌더 */}
+                {hasGlitch && (
+                    <>
+                        <img className="ch r" src={src} alt="" aria-hidden="true" />
+                        <img className="ch b" src={src} alt="" aria-hidden="true" />
+                    </>
+                )}
+            </div>
         </div>
     );
 };

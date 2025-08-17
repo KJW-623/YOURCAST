@@ -1,4 +1,7 @@
-div {
+/* ───────────────────────────────
+   공통: 터치/드래그 방지
+─────────────────────────────── */
+* {
     -webkit-touch-callout: none;
     user-select: none;
     -moz-user-select: none;
@@ -6,15 +9,16 @@ div {
     -webkit-user-select: none;
 }
 
-
+/* ───────────────────────────────
+   기본 레이아웃
+─────────────────────────────── */
 .detail-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* 또는 center로 바꾸면 완전 세로 가운데 */
-    padding-top: 6vh;
-    padding-bottom: 3vh;
+    /* center → 세로 중앙 */
+    padding: 6vh 0 3vh;
     background-color: #000;
     min-height: 100vh;
     color: #fff;
@@ -27,7 +31,6 @@ div {
     display: block;
 }
 
-/* 타이틀 스타일 */
 .detail-title {
     font-size: 2rem;
     text-align: center;
@@ -36,7 +39,6 @@ div {
     margin-bottom: 2rem;
 }
 
-/* 팀 캐릭터 목록 */
 .team-scroll {
     display: flex;
     flex-wrap: wrap;
@@ -47,7 +49,9 @@ div {
     padding: 0 1rem;
 }
 
-/* 개별 카드 스타일 */
+/* ───────────────────────────────
+   카드 기본
+─────────────────────────────── */
 .person-card {
     width: 200px;
     height: 280px;
@@ -55,27 +59,32 @@ div {
     border: 1px solid #e06363;
     border-radius: 10px;
     overflow: hidden;
-    display: flex;
+    display: inline-flex;
+    position: relative;
+    /* 오버레이 기준 */
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
+    will-change: transform, filter;
 }
 
 .person-card:hover {
     transform: scale(1.03);
 }
 
-/* 이미지가 박스에 꽉 차고, 중앙 맞춤 */
 .person-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* 박스 채우기 */
     object-position: center;
-    /* 얼굴 중앙 유지 */
     display: block;
+    position: relative;
+    z-index: 0;
 }
 
+/* ───────────────────────────────
+   뒤로가기 버튼
+─────────────────────────────── */
 .back-button-wrapper {
     display: flex;
     justify-content: center;
@@ -99,4 +108,269 @@ div {
     background: linear-gradient(to top, #444, #666);
     transform: translateY(-4px);
     box-shadow: 0 0 12px #aa0000;
+}
+
+/* ───────────────────────────────
+   MUTED 카드 (회색/노이즈)
+─────────────────────────────── */
+.person-card:is(.is-muted, [data-muted="true"]) img {
+    filter: grayscale(100%) contrast(1.06) brightness(0.9);
+    transition: filter .25s ease;
+}
+
+.person-card:is(.is-muted, [data-muted="true"])::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: .16;
+    mix-blend-mode: multiply;
+    background:
+        repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, .06) 0 1px,
+            rgba(0, 0, 0, .06) 1px 2px),
+        radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, .08), transparent 60%),
+        radial-gradient(1px 1px at 70% 80%, rgba(0, 0, 0, .08), transparent 60%);
+    animation:
+        scanSweep 4s linear infinite,
+        noiseFloat 2.8s steps(2, end) infinite;
+    will-change: transform, opacity;
+}
+
+.person-card:is(.is-muted, [data-muted="true"]):hover img {
+    filter: grayscale(100%) contrast(1.09) brightness(0.92);
+}
+
+/* ── MUTED 키프레임 ── */
+@keyframes scanSweep {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes noiseFloat {
+    0% {
+        transform: translate(0, 0);
+        opacity: .14;
+    }
+
+    50% {
+        transform: translate(-1%, 0.5%);
+        opacity: .18;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: .14;
+    }
+}
+
+@keyframes noiseEffect {
+    0% {
+        clip-path: inset(10% 0 85% 0);
+        transform: translate(-2px, 0);
+    }
+
+    20% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(2px, -2px);
+    }
+
+    40% {
+        clip-path: inset(70% 0 20% 0);
+        transform: translate(-1px, 1px);
+    }
+
+    60% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(1px, -1px);
+    }
+
+    80% {
+        clip-path: inset(50% 0 30% 0);
+        transform: translate(0, 2px);
+    }
+
+    100% {
+        clip-path: inset(10% 0 85% 0);
+        transform: translate(0, 0);
+    }
+}
+
+/* ───────────────────────────────
+   GLITCH 카드
+─────────────────────────────── */
+.person-card .glitch-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.person-card .glitch-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.person-card .glitch-wrap img.base {
+    position: relative;
+    z-index: 1;
+}
+
+.person-card.has-glitch .glitch-wrap img.ch {
+    z-index: 2;
+    mix-blend-mode: screen;
+    opacity: .25;
+    pointer-events: none;
+    will-change: transform, opacity, filter, clip-path;
+}
+
+.person-card.has-glitch .glitch-wrap img.ch.r {
+    filter: hue-rotate(0deg) saturate(2) brightness(1.15);
+    animation: glitchShiftR 2.4s infinite linear alternate;
+}
+
+.person-card.has-glitch .glitch-wrap img.ch.b {
+    filter: hue-rotate(180deg) saturate(2) brightness(1.10);
+    animation: glitchShiftB 2.1s infinite linear alternate;
+}
+
+.person-card.has-glitch::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: .18;
+    background:
+        repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, .06) 0 1px,
+            rgba(0, 0, 0, .06) 1px 2px);
+    animation: scanSweep 4s linear infinite;
+}
+
+.person-card.has-glitch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(#0000, #0000);
+    animation: sliceJitter 1.6s steps(6, end) infinite;
+}
+
+.person-card.has-glitch:hover .glitch-wrap img.ch {
+    opacity: .32;
+}
+
+/* ── GLITCH 키프레임 ── */
+@keyframes glitchShiftR {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(1.3px, -0.8px) skewX(0.5deg);
+    }
+
+    25% {
+        transform: translate(-1.6px, 0.6px) skewY(-0.4deg);
+    }
+
+    40% {
+        transform: translate(2.2px, -0.4px);
+    }
+
+    55% {
+        transform: translate(-1.2px, 0.2px);
+    }
+
+    70% {
+        transform: translate(1.0px, 0.8px);
+    }
+
+    85% {
+        transform: translate(-0.8px, -0.6px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes glitchShiftB {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    12% {
+        transform: translate(-1.3px, 0.7px) skewX(-0.6deg);
+    }
+
+    30% {
+        transform: translate(1.8px, -0.6px) skewY(0.4deg);
+    }
+
+    45% {
+        transform: translate(-2.1px, 0.3px);
+    }
+
+    60% {
+        transform: translate(1.2px, -0.2px);
+    }
+
+    78% {
+        transform: translate(-1.0px, -0.9px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes sliceJitter {
+    0% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0, 0);
+        opacity: .0;
+    }
+
+    20% {
+        clip-path: inset(12% 0 70% 0);
+        transform: translate(-1px, 0.5px);
+        opacity: .25;
+    }
+
+    40% {
+        clip-path: inset(48% 0 38% 0);
+        transform: translate(1px, -0.5px);
+        opacity: .22;
+    }
+
+    60% {
+        clip-path: inset(72% 0 14% 0);
+        transform: translate(-0.6px, 0.3px);
+        opacity: .24;
+    }
+
+    80% {
+        clip-path: inset(30% 0 50% 0);
+        transform: translate(0.8px, -0.4px);
+        opacity: .20;
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0, 0);
+        opacity: .0;
+    }
 }
