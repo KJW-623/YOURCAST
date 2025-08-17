@@ -439,6 +439,117 @@
 }
 
 .danger-quote {
-  color: #d32f2f;        /* 진한 빨강 */
-  font-weight: bold;     /* 굵게 */
+    color: #d32f2f;
+    /* 진한 빨강 */
+    font-weight: bold;
+    /* 굵게 */
+}
+
+
+
+
+
+
+
+
+/* 비공개 페이지 전용 스타일 */
+.restricted-page {
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: bgFlicker 5s infinite;
+}
+
+/* 제목 효과 */
+.restricted-title {
+    font-family: 'Creepster', cursive;
+    /* 구글 폰트 추천: Creepster */
+    font-size: 2.5rem;
+    color: #ff2d2d;
+    text-shadow: 0 0 8px #ff0000, 0 0 20px #770000;
+    animation: textFlicker 2s infinite;
+    text-align: center;
+}
+
+/* 메시지 */
+.restricted-message {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-top: 20px;
+    text-align: center;
+    animation: glitch 3s infinite;
+    position: relative;
+}
+
+/* 배경 깜빡임 */
+@keyframes bgFlicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        background: black;
+    }
+
+    20%,
+    24%,
+    55% {
+        background: #111;
+    }
+}
+
+/* 텍스트 깜빡임 */
+@keyframes textFlicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.4;
+    }
+}
+
+/* 글리치 효과 */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+    }
+
+    20% {
+        text-shadow: -2px 0 red, 2px 0 blue;
+    }
+
+    40% {
+        text-shadow: 2px 2px red, -2px -2px blue;
+    }
+
+    60% {
+        text-shadow: -2px -2px red, 2px 2px blue;
+    }
+
+    80% {
+        text-shadow: 2px -2px red, -2px 2px blue;
+    }
+
+    100% {
+        text-shadow: none;
+    }
 }
