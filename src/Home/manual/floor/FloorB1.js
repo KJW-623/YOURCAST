@@ -21,14 +21,12 @@ export default function FloorB1() {
         setLocking(true);
         setSelected('B1');
         setOpen(true);
-
-        // 문 열림 후 허브로 이동
         timers.current.push(
-            setTimeout(() => navigate('/manual/b1/b1'), 600),  // 허브 이동
+            setTimeout(() => navigate('/manual/b1/b1'), 600),
             setTimeout(() => {
                 setOpen(false);
                 setLocking(false);
-            }, 1200) // 도어 리셋
+            }, 1200)
         );
     };
 
@@ -36,12 +34,12 @@ export default function FloorB1() {
         <div className="elev-page">
             <div className={`elev-panel ${open ? 'doors-open' : ''}`}>
                 <div className="elev-display">
-                    <span className="elev-range">B1</span>
+                    <span className="elev-range">어디로 이동하시겠습니까?</span>
                     <span className="elev-indicator" />
                     <span className="current-floor">{selected ? `>> ${selected}` : '대기 중'}</span>
                 </div>
 
-                {/* 버튼 하나만 중앙 정렬 */}
+                {}
                 <div className="elev-buttons centered" style={{ '--cols': 1 }}>
                     <button
                         className="elev-btn"

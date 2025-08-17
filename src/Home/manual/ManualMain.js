@@ -15,7 +15,7 @@ const ManualMain = () => {
         />
 
         {/* 1~5F */}
-        <div className="button-wrapper left" style={{ top: '62.9%', left: '10%' }}>
+        <div className="button-wrapper left" style={{ top: '64%', left: '10%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/1f')}>1~5 F</div>
         </div>
 
@@ -25,27 +25,27 @@ const ManualMain = () => {
         </div>
 
         {/* ??? */}
-        <div className="button-wrapper left" style={{ top: '42.8%', left: '10%' }}>
+        <div className="button-wrapper left" style={{ top: '42%', left: '10%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/mystery')}> ■■■ </div>
         </div>
 
         {/* 9~12F */}
-        <div className="button-wrapper right" style={{ top: '56%', left: '73%' }}>
+        <div className="button-wrapper right" style={{ top: '56.5%', left: '73%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/9f')}>9~12 F</div>
         </div>
 
         {/* 15~20F */}
-        <div className="button-wrapper right" style={{ top: '42.5%', left: '75%' }}>
+        <div className="button-wrapper right" style={{ top: '42%', left: '75%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/15f')}>15~20 F</div>
         </div>
 
         {/* B1 */}
-        <div className="button-wrapper left" style={{ top: '65.5%', left: '78%' }}>
+        <div className="button-wrapper left" style={{ top: '66.5%', left: '78%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/b1')}> B1 </div>
         </div>
 
         {/* H */}
-        <div className="button-wrapper left" style={{ top: '29%', left: '40%' }}>
+        <div className="button-wrapper left" style={{ top: '27%', left: '40%' }}>
           <div className="floor-button" onClick={() => navigate('/manual/H')}> H </div>
         </div>
       </div>

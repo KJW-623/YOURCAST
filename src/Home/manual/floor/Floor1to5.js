@@ -1,21 +1,18 @@
-// src/Home/manual/floor/Floor1to5.js
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FloorCommon.css';
 
 export default function Floor1to5() {
     const [selected, setSelected] = useState(null);
     const [open, setOpen] = useState(false);
-    const [locking, setLocking] = useState(false); // 중복 입력 방지
+    const [locking, setLocking] = useState(false);
     const navigate = useNavigate();
 
-    // ✅ JS 문법: 타입 제거
     const timers = useRef([]);
     const addTimer = (id) => {
         timers.current.push(id);
     };
 
-    // 언마운트 시 타이머 정리
     useEffect(() => {
         return () => {
             timers.current.forEach((t) => clearTimeout(t));
@@ -29,14 +26,12 @@ export default function Floor1to5() {
         setSelected(f);
         setOpen(true);
 
-        // 문 열림 연출 후 이동
         addTimer(setTimeout(() => {
             if (f === 1) navigate('/manual/1f/1');
-            else if (f === 5) navigate('/manual/1f/5'); // 5F 허브(또는 상세)
-            else navigate(`/manual/1f/${f}`); // 2,3,4층 -> ErrorPage 라우팅
+            else if (f === 5) navigate('/manual/1f/5');
+            else navigate(`/manual/1f/${f}`);
         }, 650));
 
-        // 문 닫힘 복구
         addTimer(setTimeout(() => {
             setOpen(false);
             setLocking(false);
@@ -54,7 +49,7 @@ export default function Floor1to5() {
         <div className="elev-page">
             <div className={`elev-panel ${open ? 'doors-open' : ''}`}>
                 <div className="elev-display" role="region" aria-label="1~5층 엘리베이터 패널">
-                    <span className="elev-range">1~5F</span>
+                    <span className="elev-range">어디로 이동하시겠습니까?</span>
                     <span className="elev-indicator" />
                     <span className="current-floor" aria-live="polite">
                         {selected ? `>> ${selected}F` : '대기 중'}

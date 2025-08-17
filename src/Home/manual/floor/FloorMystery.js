@@ -18,7 +18,6 @@ export default function FloorMystery() {
         setLocking(true);
         setSelected(symbols[i % symbols.length]);
         setOpen(true);
-        // TODO: navigate('/manual/mis/hidden')
         timers.current.push(setTimeout(() => { setOpen(false); setLocking(false); }, 1000));
     };
 
@@ -31,7 +30,7 @@ export default function FloorMystery() {
                     <span className="current-floor">{selected ? `>> ${selected}` : '대기 중'}</span>
                 </div>
 
-                {/* 중앙 고정 정렬 (5열 × 2행 느낌) */}
+                {}
                 <div className="elev-buttons centered" style={{ '--cols': 5 }}>
                     {Array.from({ length: 10 }).map((_, i) => (
                         <button

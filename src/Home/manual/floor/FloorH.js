@@ -17,7 +17,7 @@ export default function FloorH() {
         setSelected('H');
         setOpen(true);
         timers.current.push(
-            setTimeout(() => navigate('/manual/h/h'), 600),   // 허브로 이동
+            setTimeout(() => navigate('/manual/h/h'), 600),
             setTimeout(() => { setOpen(false); setLocking(false); }, 1200)
         );
     };
@@ -26,7 +26,7 @@ export default function FloorH() {
         <div className="elev-page">
             <div className={`elev-panel ${open ? 'doors-open' : ''}`}>
                 <div className="elev-display">
-                    <span className="elev-range">H</span>
+                    <span className="elev-range">어디로 이동하시겠습니까?</span>
                     <span className="elev-indicator" />
                     <span className="current-floor">{selected ? `>> ${selected}` : '대기 중'}</span>
                 </div>
