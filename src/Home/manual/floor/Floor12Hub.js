@@ -20,7 +20,7 @@ export default function Floor12Hub() {
 
                     <button className="hub-card" onClick={() => navigate('/manual/9f/12/garden')}>
                         <div className="hub-title">공중정원</div>
-                        <div className="hub-sub">바람결 / 유리 난간</div>
+                        <div className="hub-sub">특수 식물</div>
                     </button>
                 </div>
             </div>

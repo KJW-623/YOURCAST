@@ -6,38 +6,109 @@ export default function Floor12Garden() {
     const navigate = useNavigate();
     return (
         <div className="elev-page">
-            <div className="elev-panel">
+            <div className="elev-panel" style={{ padding: '32px 24px' }}>
                 <div className="elev-display">
-                    <span className="elev-range">12F</span>
+                    <span className="elev-range">12F · 공중정원</span>
                     <span className="elev-indicator" />
-                    <span className="current-floor">Sky Garden</span>
                 </div>
 
-                <div className="manual-doc">
+                <article className="manual-doc">
                     <h1 className="doc-title">공중정원</h1>
 
-                    <div className="doc-section">
-                        <h2>상태</h2>
-                        <p className="doc-p">분수대 물결이 바람과 반대로 움직인다.</p>
-                        <span className="doc-note">유리 난간에 손바닥 잔상이 남는다.</span>
-                    </div>
+                    <p className="doc-p">
+                        현재 귀하께서는 공중정원(이하 정원)으로의 접근을 고려 중이거나 이미 내부에 진입한 것으로 파악됩니다.
+                        본 지침서는 해당 구역에서 보고된 변이 식물군집(이하 ‘괴이 식물’)의 특성과, 생존을 위한 최소한의 대응 방안을 서술하는 것을 목적으로 합니다.
+                    </p>
 
-                    <div className="doc-section">
-                        <h2>주의</h2>
-                        <div className="doc-warning">정각에 들리는 합창에 응답하지 말 것.</div>
-                    </div>
+                    <p className="doc-p">
+                        1. 정원에 진입하는 경우 그 무엇에도 손을 대지 마십시오. 내부의 식물은 모두 괴이에 의해 변이된 개체로 확인되었습니다.
+                    </p>
 
-                    <div className="doc-section">
-                        <h2>행동 지침</h2>
-                        <ul>
-                            <li>난간에 기대지 않기.</li>
-                            <li>정각 ±1분 정지 후 이동.</li>
-                        </ul>
-                    </div>
-                </div>
+                    <p className="doc-p">
+                        1-1. 변이의 대표적인 형태는 식인식물입니다. 해당 개체들은 식충식물과 유사한 습성을 보이며, 먹잇감이 접근했을 때 이를 홀리기 위해 다양한 수단을 사용합니다.
+                        일부 보고에 따르면, 이들은 인간의 목소리를 모방하거나, 익숙한 냄새·빛을 재현하여 인원을 유인하는 능력을 보유하고 있습니다.
+                    </p>
+
+                    <p className="doc-p">
+                        1-1-1. 일단 포획된 경우, 덩굴·뿌리·잎날 등을 사용하여 신체를 고정한 뒤, 강제로 구강(혹은 유사 구조)에 집어넣는 과정이 확인되었습니다.
+                        이 시점 이후의 생존 사례는 보고되지 않았습니다.
+                    </p>
+
+                    <p className="doc-p">
+                        2. 정원은 반드시 다수의 인원이 함께 진입하십시오. 단독 진입자의 생존율은 발견된 바 없으며, 홀로 진입한 경우 사망이 기정사실화됩니다.
+                    </p>
+
+                    <p className="doc-p">
+                        2-2. 다수의 인원이 동행할 경우, 이하 지침을 명심하십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        괴이 식물은 인간의 목소리에 민감하게 반응하는 것으로 확인되었습니다. 일정 수준 이상의 대화나 소음이 유지되는 경우, 식물들은 쉽게 접근하지 않습니다.
+                        그러나 일행이 침묵하거나, 대화가 끊긴 순간 괴이 식물은 포식 행위를 개시합니다.
+                        이 경우 한 명의 인원 소실은 그 자체로 ‘자연스러운’ 결과로 여겨지는 듯 보이며, 대상자 실종 후에도 정원은 평온을 유지합니다.
+                        그러므로 정원 내부에서는 반드시 지속적인 발화 혹은 일정한 잡음을 유지하십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        3. 외부 증언에 따르면, E군이 정원 내부에서 약재로 사용할 수 있는 식물을 발견했다고 보고한 바 있습니다.
+                        <br/>그러나 조사 결과, 해당 식물 또한 변이된 개체로 판명되었습니다.
+                        본 식물을 약재로 사용할 경우, 귀하의 몸을 숙주로 삼아 괴이 식물이 활동을 개시합니다.
+                    </p>
+
+                    <p className="doc-p">
+                        3-1. 변이의 과정은 다음과 같이 나타납니다.
+                        <br/> - 초기: 단순한 피부 발진이나 체온 상승
+                        <br/> - 진행기: 식물의 뿌리 조직이 피하 혈관을 따라 확산, 근육 및 장기 침식
+                        <br/> - 임종기: 숙주는 완전히 비워진 껍데기만 남으며, 내부 장기는 모두 식물의 새로운 뿌리 구조로 대체
+                    </p>
+
+                    <p className="doc-p">해당 모든 과정은 72시간 이내로 나타납니다.</p>
+
+                    <p className="doc-p">
+                        4. 일부 보고에 따르면 괴이 식물 중 일부는 인간과의 교환을 제안하는 행위를 시도합니다.
+                        예컨대 원하는 약재를 제공하겠다거나 부상 부위를 치유하겠다는 식입니다.
+                    </p>
+
+                    <p className="doc-p">
+                        4-1. 이 제안을 수락할 경우, 귀하는 귀하 자신을 포함한 일행의 일부를 대가로 내주어야 합니다.
+                        교환이 성사된 이래 실종된 인원의 반환 사례는 없습니다.
+                        그러므로 모든 형태의 식물과의 상호작용은 금기시되며, 반드시 관찰자의 위치에 머무르십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        4-2. 또한 거래를 무시하지 마시며, 그들의 심기를 거스를 만큼 무례하게 답하지도 마십시오.
+                        귀하께서는 어디까지나 공중정원에 방문한 손님이며, 본 공간의 주인이 누구인지 되새기십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        4-3. 만약 동료가 당신을 거래 대상으로 삼으려 할 경우 최대한 목소리를 크게 내며 거부하십시오.
+                        해당 식물들은 거래 대상의 거부를 강하게 인식합니다.
+                    </p>
+
+                    <p className="doc-p">
+                        이 경우, 잘못된 거래 대상을 제시한 거래자가 타겟이 될 것입니다.
+                    </p>
+
+                    <p className="doc-p">
+                        더 이상 귀하가 할 수 있는 일은 없습니다. 귀하의 길을 가십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        5. 특정 목적(약재 회수, 내부 탐색 등)에 의해 진입을 강행해야 하는 경우, 반드시 다수의 인원과 함께하고 절대 침묵하지 않도록 하십시오.
+                    </p>
+
+                    <p className="doc-p">
+                        5-1. 귀하가 본 지침서를 발견한 시점에서 이미 정원 진입이 예정되었거나 진행 중일 가능성이 높습니다.
+                        명심하십시오. 본 절차를 엄격히 준수하지 않는다면 귀하는 확정적 손실을 맞이하게 될 것입니다.
+                    </p>
+                </article>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/9f/12')}>← 이전 위치로 돌아가기</button>
+            <div style={{ display: 'flex', gap: 12 }}>
+                <button className="back-link" onClick={() => navigate('/manual/9f/12')}>
+                    ← 이전 위치로 돌아가기
+                </button>
+            </div>
         </div>
     );
 }
