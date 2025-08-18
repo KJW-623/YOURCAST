@@ -13,7 +13,7 @@ export default function Floor7Office() {
                 </div>
 
                 <article className="manual-doc">
-                    <h1 className="doc-title">NEW DIMENSION 사무실 지침서</h1>
+                    <h1 className="doc-title">NEW DIMENSION 사무실</h1>
 
                     <p className="doc-p">
                         현재 귀하께서 계신 뉴 디멘션, 이하 뉴디 사무소 내에 존재하는 위협 요소는
