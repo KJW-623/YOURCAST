@@ -82,3 +82,33 @@
         background-position: -4px 6px;
     }
 }
+
+.error-hint {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: #cfcfcf;
+    opacity: 0.55;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.08);
+    animation: hintFlicker 7.5s infinite steps(70, end);
+    user-select: none;
+}
+
+@keyframes hintFlicker {
+
+    0%,
+    7%,
+    10%,
+    13%,
+    100% {
+        opacity: 0.55;
+    }
+
+    8% {
+        opacity: 0.2;
+    }
+
+    11% {
+        opacity: 0.4;
+    }
+}

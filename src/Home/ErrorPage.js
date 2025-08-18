@@ -30,6 +30,9 @@ const ErrorPage = () => {
             <h1 className="error-title">여긴 네가 올 곳이 아니야.</h1>
             <p className="error-sub">돌아가지 않으면... 무언가가 널 알아챌 거야.</p>
 
+            <p className="error-hint" aria-live="off">
+                시계가 73분 10초에 멈추는 순간...
+            </p>
             {/* ── 엘리베이터식 이전 위치 버튼 ── */}
             <div className="elev-home-wrap" aria-hidden="false">
                 <button
