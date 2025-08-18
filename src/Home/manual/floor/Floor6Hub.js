@@ -15,7 +15,7 @@ export default function Floor6Hub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/6f/6/wardrobe')}>
                         <div className="hub-title">의상룸</div>
-                        <div className="hub-sub">사이즈 표 식별 / 거울 반응</div>
+                        <div className="hub-sub">의상 보관</div>
                     </button>
                 </div>
             </div>
