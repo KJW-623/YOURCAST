@@ -16,12 +16,12 @@ export default function Floor1Hub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/1f/1/lobby')}>
                         <div className="hub-title">로비</div>
-                        <div className="hub-sub">방문자 확인 / 출입 절차</div>
+                        <div className="hub-sub">방문자 확인</div>
                     </button>
 
                     <button className="hub-card" onClick={() => navigate('/manual/1f/1/cafe')}>
                         <div className="hub-title">카페 시나몬</div>
-                        <div className="hub-sub">저음의 속삭임 / 잔향</div>
+                        <div className="hub-sub">메뉴</div>
                     </button>
                 </div>
             </div>
