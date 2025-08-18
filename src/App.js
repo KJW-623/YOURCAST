@@ -160,7 +160,7 @@ function App() {
         <Route path="/manual/h" element={<FloorH />} />
         <Route path="/manual/h/h" element={<FloorHHub />} />
         <Route path="/manual/h/h/helipad" element={<FloorHHelipad />} />
-        <Route path="/manual/mis" element={<FloorMystery />} />
+        <Route path="/manual/mystery" element={<FloorMystery />} />
 
         <Route path="/manual/b1" element={<FloorB1 />} />
         <Route path="/manual/b1/b1" element={<FloorB1Hub />} />
