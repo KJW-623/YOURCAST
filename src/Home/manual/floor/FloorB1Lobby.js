@@ -19,28 +19,37 @@ export default function FloorB1Lobby() {
 
                     <div className="doc-section">
                         <h2>상태</h2>
-                        <p className="doc-p">복도 끝에서 들려오는 일정한 발소리. 멈추면, 같이 멈춘다.</p>
-                        <span className="doc-note">접수대 표면엔 손가락으로 긁은 흔적: “올라가지 마…”</span>
+                        <p className="doc-p">
+                            불안한 기척은 사라지고, 은은한 정적만이 가득합니다.
+                            이곳에서는 잠시 호흡을 고르며 안정을 되찾을 수 있습니다.
+                        </p>
+                        <span className="doc-note">
+                            접수대 위에 희미한 글씨: “여긴 괜찮아. 잠시 머물러도 돼.”
+                        </span>
                     </div>
 
                     <div className="doc-section">
-                        <h2>주의</h2>
+                        <h2>안내</h2>
                         <div className="doc-warning">
-                            출입문 오른쪽 문틀에 녹슨 못 protrusion 존재. 밤에 더 잘 걸린다.
+                            주변은 희미하게 조명이 깜빡이지만, 위협적인 흔적은 감지되지 않습니다.
+                            낯선 발소리도, 쫓아오는 그림자도 이 공간엔 없습니다.
                         </div>
                     </div>
 
                     <div className="doc-section">
                         <h2>행동 지침</h2>
                         <ul>
-                            <li>조명 깜빡임 시, 10초간 정지 후 이동.</li>
-                            <li>한 번 들은 이름을 되풀이하지 않는다.</li>
+                            <li>잠시 멈추어 호흡을 가다듬으십시오.</li>
+                            <li>同行者(동행자)가 있다면, 조용히 대화를 나눠도 안전합니다.</li>
+                            <li>충분히 안정되었다면, 다음 층으로 이동을 준비하십시오.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <button className="back-link" onClick={() => navigate('/manual/b1/b1')}>← 이전 위치로 돌아가기</button>
+            <button className="back-link" onClick={() => navigate('/manual/b1/b1')}>
+                ← 이전 위치로 돌아가기
+            </button>
         </div>
     );
 }
