@@ -1,0 +1,337 @@
+/* 기본: 선택방지 */
+.chamber-wrap,
+.chamber-wrap * {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.chamber-wrap {
+    min-height: 100vh;
+    background: #000;
+    display: grid;
+    place-items: center;
+    padding: 6vh 3vw;
+}
+
+/* CRT 컨테이너 */
+.crt {
+    position: relative;
+    width: min(920px, 92vw);
+    padding: 32px 28px 20px;
+    background: radial-gradient(120% 140% at 50% 0%, #0b0b0b 0%, #000 55%, #000 100%);
+    border-radius: 18px;
+    box-shadow:
+        0 0 0 1px rgba(255, 0, 0, 0.06),
+        0 0 0 2px rgba(0, 255, 255, 0.04),
+        0 10px 40px rgba(0, 0, 0, 0.9),
+        inset 0 0 120px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    transform: perspective(1200px) rotateX(1.2deg);
+}
+
+/* 스캔라인 + 노이즈 */
+.scanlines::before,
+.scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.scanlines::before {
+    background-image:
+        repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, 0.25) 2px 4px),
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.03), transparent 35%);
+    mix-blend-mode: overlay;
+}
+
+.scanlines::after {
+    background-image:
+        radial-gradient(1200px 200px at 50% 0%, rgba(0, 255, 170, 0.06), transparent 60%),
+        conic-gradient(from 0deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 255, 0.05), rgba(255, 0, 0, 0.05));
+    animation: drift 11s linear infinite;
+    opacity: .35;
+}
+
+@keyframes drift {
+    0% {
+        transform: translateY(0) rotate(0deg)
+    }
+
+    100% {
+        transform: translateY(-6%) rotate(1turn)
+    }
+}
+
+/* 글리치 타이틀 */
+.glitch-title {
+    position: relative;
+    font: 700 clamp(26px, 6vw, 54px) 'IM Fell English SC', serif;
+    letter-spacing: .12em;
+    text-align: center;
+    margin: 0 0 20px;
+    color: #e64545;
+    text-shadow: 0 0 8px rgba(230, 69, 69, .35);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, .18));
+}
+
+.glitch-title span {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.glitch-title span:first-child {
+    position: relative;
+    mix-blend-mode: screen;
+}
+
+.glitch-title span:nth-child(2) {
+    color: #00f0ff;
+    transform: translateX(-1.2px);
+    clip-path: polygon(0 5%, 100% 0, 100% 45%, 0 50%);
+    opacity: .7;
+    animation: glitchA 1.8s infinite steps(2, end);
+}
+
+.glitch-title span:nth-child(3) {
+    color: #ff0066;
+    transform: translateX(1.2px);
+    clip-path: polygon(0 55%, 100% 50%, 100% 100%, 0 95%);
+    opacity: .7;
+    animation: glitchB 1.6s infinite steps(2, end);
+}
+
+@keyframes glitchA {
+    0% {
+        transform: translate(-1.2px, 0)
+    }
+
+    50% {
+        transform: translate(1.2px, 0)
+    }
+
+    100% {
+        transform: translate(-1.2px, 0)
+    }
+}
+
+@keyframes glitchB {
+    0% {
+        transform: translate(1.2px, 0)
+    }
+
+    50% {
+        transform: translate(-1.2px, 0)
+    }
+
+    100% {
+        transform: translate(1.2px, 0)
+    }
+}
+
+/* 무작위 경고 플래시 */
+.glitch-title.armed {
+    animation: warn-flash 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes warn-flash {
+    0% {
+        text-shadow: 0 0 6px rgba(255, 20, 20, .35);
+        filter: drop-shadow(0 0 5px rgba(255, 0, 0, .18));
+    }
+
+    100% {
+        text-shadow: 0 0 18px rgba(255, 60, 60, .8);
+        filter: drop-shadow(0 0 16px rgba(255, 0, 0, .35));
+    }
+}
+
+/* 패널 카드 */
+.panel-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(10, 10, 10, .9), rgba(10, 10, 10, .7));
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+    padding: 18px 20px 16px;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .04),
+        0 0 0 1px rgba(0, 0, 0, .7);
+}
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.head-text {
+    color: #d6f3e9;
+    font: 600 14px/1 'Gowun Dodum', sans-serif;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .9;
+}
+
+.lamp {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    filter: blur(.2px);
+}
+
+.lamp-green {
+    background: radial-gradient(#aaffcc, #0f3);
+    box-shadow: 0 0 10px rgba(0, 255, 51, 0.66);
+}
+
+.lamp-red {
+    background: radial-gradient(#ffaaaa, #f00);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+
+/* 경고 목록 */
+.edict {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 16px;
+    display: grid;
+    gap: 10px;
+}
+
+.edict li {
+    opacity: 0;
+    transform: translateY(6px);
+    background: rgba(255, 255, 255, .03);
+    border: 1px dashed rgba(255, 255, 255, .08);
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #e8e8e8;
+    font-size: clamp(12.5px, 1.8vw, 14.5px);
+    line-height: 1.55;
+    transition: opacity .4s ease, transform .4s ease, background .25s;
+}
+
+.edict li.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.edict li.final {
+    background: linear-gradient(180deg, rgba(255, 60, 60, .08), rgba(255, 0, 0, .05));
+    border-color: rgba(255, 60, 60, .18);
+    box-shadow: inset 0 0 20px rgba(255, 0, 0, .06);
+}
+
+.edict b {
+    color: #ff6a6a;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.edict em {
+    color: #c8f9ff;
+    font-style: normal;
+    text-shadow: 0 0 8px rgba(0, 220, 255, .12);
+}
+
+.edict u {
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(255, 0, 0, .6);
+}
+
+/* 액션 버튼 */
+.action-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, .12);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .03);
+    color: #e8e8e8;
+    font-size: 14px;
+    letter-spacing: .02em;
+    transition: transform .08s ease, box-shadow .18s ease, background .2s ease, border-color .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35), inset 0 0 20px rgba(255, 255, 255, .04);
+}
+
+.btn.ghost:hover {
+    background: rgba(255, 255, 255, .06);
+}
+
+.btn.proceed {
+    border-color: rgba(0, 255, 170, .18);
+    box-shadow: inset 0 0 14px rgba(0, 255, 170, .08);
+}
+
+.btn.proceed.ready {
+    background: linear-gradient(180deg, rgba(0, 255, 170, .08), rgba(0, 0, 0, .0));
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: inset 0 0 14px rgba(0, 255, 170, .08), 0 0 0 rgba(0, 255, 170, 0)
+    }
+
+    70% {
+        box-shadow: inset 0 0 18px rgba(0, 255, 170, .20), 0 0 24px rgba(0, 255, 170, .18)
+    }
+
+    100% {
+        box-shadow: inset 0 0 14px rgba(0, 255, 170, .08), 0 0 0 rgba(0, 255, 170, 0)
+    }
+}
+
+/* 하단 티커 */
+.ticker {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    margin-top: 16px;
+    padding-top: 10px;
+    opacity: .95;
+}
+
+.ticker>span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 12s linear infinite;
+    color: #9ce7df;
+    font: 500 12px/1 'Gowun Dodum', sans-serif;
+    letter-spacing: .16em;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}
+
+/* 접근성: 포커스 */
+.btn:focus-visible {
+    outline: 2px solid #00ffaa;
+    outline-offset: 2px;
+}

@@ -77,6 +77,10 @@ import Floor20Hub from './Home/manual/floor/Floor20Hub';
 import Floor20Office from './Home/manual/floor/Floor20Office';
 import Floor20Reception from './Home/manual/floor/Floor20Reception';
 
+import MysteryChamber from './Home/manual/floor/MysteryChamber';
+import MysteryCodex from './Home/manual/floor/MysteryCodex';
+import CodexReader from './Home/manual/floor/CodexReader';
+
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -161,7 +165,10 @@ function App() {
         <Route path="/manual/h/h" element={<FloorHHub />} />
         <Route path="/manual/h/h/helipad" element={<FloorHHelipad />} />
         <Route path="/manual/mystery" element={<FloorMystery />} />
-
+        <Route path="/manual/mystery/chamber" element={<MysteryChamber />} />
+        <Route path="/manual/mystery/codex" element={<MysteryCodex />} />
+        <Route path="/manual/mystery/codex/read" element={<CodexReader />} />
+        
         <Route path="/manual/b1" element={<FloorB1 />} />
         <Route path="/manual/b1/b1" element={<FloorB1Hub />} />
         <Route path="/manual/b1/b1/lobby" element={<FloorB1Lobby />} />
