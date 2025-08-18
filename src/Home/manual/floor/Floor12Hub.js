@@ -14,8 +14,8 @@ export default function Floor12Hub() {
 
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/9f/12/office')}>
-                        <div className="hub-title">Rhythm Link 사무실</div>
-                        <div className="hub-sub">문서 보관 / 통신</div>
+                        <div className="hub-title">Rhythm Link</div>
+                        <div className="hub-sub">제안 여부</div>
                     </button>
 
                     <button className="hub-card" onClick={() => navigate('/manual/9f/12/garden')}>
