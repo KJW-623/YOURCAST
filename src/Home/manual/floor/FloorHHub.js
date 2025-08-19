@@ -16,7 +16,7 @@ export default function FloorHHub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/h/h/helipad')}>
                         <div className="hub-title">헬리포트</div>
-                        <div className="hub-sub">경계등 / 강풍 / 시야 제한</div>
+                        <div className="hub-sub">추락사 주의</div>
                     </button>
                 </div>
             </div>
