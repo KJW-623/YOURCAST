@@ -12,6 +12,17 @@
 /* ───────────────────────────────
    기본 레이아웃
 ─────────────────────────────── */
+
+html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto !important;
+    -webkit-touch-callout: auto !important;
+    user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    -webkit-user-select: auto !important;
+}
 .detail-wrapper {
     display: flex;
     flex-direction: column;
