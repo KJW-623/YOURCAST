@@ -15,7 +15,7 @@ export default function Floor18Hub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/15f/18/office')}>
                         <div className="hub-title">COSMIC PRODUCTION</div>
-                        <div className="hub-sub">사무실 / 통신</div>
+                        <div className="hub-sub">편지</div>
                     </button>
                 </div>
             </div>

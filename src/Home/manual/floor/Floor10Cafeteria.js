@@ -80,10 +80,7 @@ export default function Floor10Cafeteria() {
                         <p className="doc-p">4-1-2. 귀하께서 단독으로 진입 후...</p>
                         <p className="doc-p">코즈프로 소속 아이돌 R군은 사원식당 앞을 배회하던 중...</p>
 
-                        <p className="doc-p">4-2. 『셰프』</p>
-                        <p className="doc-p">외관과 무관하게 흰 가운을 입고 있음</p>
-                        <p className="doc-p">4-2.1.</p>
-                        <p className="doc-p">4-2-2.</p>
+                        <p className="doc-p">4-2. 『셰프』 : 외관과 무관하게 흰 가운을 입고 있음 가운을 입고 있음 -- 현재 파악된 바 없음.</p>
                     </div>
                     <br/>
                     <div className="doc-section">
