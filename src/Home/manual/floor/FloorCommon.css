@@ -336,7 +336,7 @@
     background: #0a0a0c;
     border: 1px solid #1b1b1d;
     border-radius: 14px;
-    padding: var(--sp-3) var(--sp-3);
+    padding: var(--sp-3) var(--sp-5);
     color: #e7e4e4;
     line-height: 1.72;
     box-shadow: inset 0 0 24px rgba(161, 26, 26, .12);

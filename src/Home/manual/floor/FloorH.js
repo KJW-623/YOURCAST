@@ -42,5 +42,6 @@ export default function FloorH() {
 
             <button className="back-link" onClick={() => navigate('/manual')}>← 이전 위치로 돌아가기</button>
         </div>
+        
     );
 }

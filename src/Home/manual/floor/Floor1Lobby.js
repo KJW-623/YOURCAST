@@ -46,9 +46,9 @@ export default function Floor1Lobby() {
 
                     <p className="doc-p">4. 출입문을 통한 외부 진출은 절대 금지됩니다.</p>
 
-                    <p className="doc-p">4-1. 출입문을 넘어선 순간, 귀하는 인간으로서 수용 불가능한 정보와 장면을 직면하게 되며, 다수 사례에서 즉각적인 정신 붕괴가 발생했습니다.</p>
+                    <p className="doc-p">4-1. </p>
 
-                    <p className="doc-p">4-2. 일부 사례는 스스로 목을 꺾어 사망에 이르는 극단적 반응을 보였습니다. 이는 방어 기제라 추정되나, 귀하에게 동일한 결과가 반복되지 않는다는 보장은 없습니다.</p>
+                    <p className="doc-p">4-2. </p>
 
                     <p className="doc-p">5. 의식체의 색상은 그들의 기분 상태 및 위협도를 반영합니다. 반드시 관찰을 통해 위험도를 판별하십시오.</p>
 
@@ -64,7 +64,7 @@ export default function Floor1Lobby() {
 
                     <p className="doc-p">자유롭게 행동하십시오.</p>
 
-                    <p className="doc-p">６. 본 지침서를 확인한 귀하는 이미 로비 위험 구역에 진입한 상태입니다.</p>
+                    <p className="doc-p">6. 본 지침서를 확인한 귀하는 이미 로비 위험 구역에 진입한 상태입니다.</p>
 
                     <p className="doc-p">6-1. 모든 수단을 동원하여 의식체와의 불필요한 상호작용을 차단하십시오.</p>
 
