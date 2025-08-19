@@ -20,7 +20,6 @@ const TEAM_LOGOS = {
 };
 
 const TEAM_DATA = {
-    /* ── 네 데이터 그대로 ── */
     fine: [
         { name: '텐쇼인 에이치', imageDefault: `${process.env.PUBLIC_URL}/standing/10101_텐쇼인 에이치(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/10101_텐쇼인 에이치(2).png` },
         { name: '히비키 와타루', imageDefault: `${process.env.PUBLIC_URL}/standing/10102_히비키 와타루(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/10102_히비키 와타루(2).png` },
@@ -47,9 +46,9 @@ const TEAM_DATA = {
         { name: '카제하야 타츠미', imageDefault: `${process.env.PUBLIC_URL}/standing/10404_카제하야 타츠미(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/10404_카제하야 타츠미(2).png` },
     ],
     Eden: [
-        { name: '란 나기사', imageDefault: `${process.env.PUBLIC_URL}/standing/20101_란 나기사(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20101_란 나기사(2).png` },
+        { name: '란 나기사', imageDefault: `${process.env.PUBLIC_URL}/standing/20101_란 나기사(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20101_란 나기사(1).png` },
         { name: '토모에 히요리', imageDefault: `${process.env.PUBLIC_URL}/standing/20102_토모에 히요리(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20102_토모에 히요리(2).png` },
-        { name: '사에구사 이바라', imageDefault: `${process.env.PUBLIC_URL}/standing/20103_사에구사 이바라(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20103_사에구사 이바라(2).png` },
+        { name: '사에구사 이바라', imageDefault: `${process.env.PUBLIC_URL}/standing/20103_사에구사 이바라(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20103_사에구사 이바라(1).png` },
         { name: '사자나미 쥰', imageDefault: `${process.env.PUBLIC_URL}/standing/20104_사자나미 쥰(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20104_사자나미 쥰(2).png` },
     ],
     Valkyrie: [
@@ -62,8 +61,8 @@ const TEAM_DATA = {
     ],
     CrazyB: [
         { name: '아마기 린네', imageDefault: `${process.env.PUBLIC_URL}/standing/20401_아마기 린네(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20401_아마기 린네(2).png` },
-        { name: 'HiMERU', imageDefault: `${process.env.PUBLIC_URL}/standing/20402_HiMERU(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20402_HiMERU(2).png` },
-        { name: '오우카와 코하쿠', imageDefault: `${process.env.PUBLIC_URL}/standing/20403_오우카와 코하쿠(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20403_오우카와 코하쿠(2).png` },
+        { name: 'HiMERU', imageDefault: `${process.env.PUBLIC_URL}/standing/20402_HiMERU(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20402_HiMERU(1).png` },
+        { name: '오우카와 코하쿠', imageDefault: `${process.env.PUBLIC_URL}/standing/20403_오우카와 코하쿠(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20403_오우카와 코하쿠(1).png` },
         { name: '시이나 니키', imageDefault: `${process.env.PUBLIC_URL}/standing/20404_시이나 니키(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/20404_시이나 니키(2).png` },
     ],
     UNDEAD: [
@@ -87,8 +86,8 @@ const TEAM_DATA = {
         { name: '스오우 츠카사', imageDefault: `${process.env.PUBLIC_URL}/standing/40101_스오우 츠카사(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40101_스오우 츠카사(2).png` },
         { name: '츠키나가 레오', imageDefault: `${process.env.PUBLIC_URL}/standing/40102_츠키나가 레오(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40102_츠키나가 레오(2).png` },
         { name: '세나 이즈미', imageDefault: `${process.env.PUBLIC_URL}/standing/40103_세나 이즈미(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40103_세나 이즈미(2).png` },
-        { name: '사쿠마 리츠', imageDefault: `${process.env.PUBLIC_URL}/standing/40104_사쿠마 리츠(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40104_사쿠마 리츠(2).png` },
-        { name: '나루카미 아라시', imageDefault: `${process.env.PUBLIC_URL}/standing/40105_나루카미 아라시(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40105_나루카미 아라시(2).png` },
+        { name: '사쿠마 리츠', imageDefault: `${process.env.PUBLIC_URL}/standing/40104_사쿠마 리츠(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40104_사쿠마 리츠(1).png` },
+        { name: '나루카미 아라시', imageDefault: `${process.env.PUBLIC_URL}/standing/40105_나루카미 아라시(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40105_나루카미 아라시(1).png` },
     ],
     Switch: [
         { name: '사카사키 나츠메', imageDefault: `${process.env.PUBLIC_URL}/standing/40201_사카사키 나츠메(1).png`, imageHover: `${process.env.PUBLIC_URL}/standing/40201_사카사키 나츠메(2).png` },
@@ -106,10 +105,10 @@ const ProfileDetail = () => {
     const team = TEAM_DATA[name] || [];
 
     // ✅ 회색/노이즈 처리 대상
-    const MUTED_SET = new Set(['히비키 와타루']);
+    const MUTED_SET = new Set(['사에구사 이바라', 'HiMERU', '란 나기사', '나루카미 아라시', '오우카와 코하쿠', '사쿠마 리츠']);
 
     // ✅ 글리치 처리 대상 (원하면 여기서 멤버 추가/삭제)
-    const GLITCH_SET = new Set(['히비키 와타루']);
+    const GLITCH_SET = new Set(['사에구사 이바라', 'HiMERU', '란 나기사', '나루카미 아라시', '오우카와 코하쿠', '사쿠마 리츠']);
 
     const goBackOrMain = () => {
         if (window.history.length > 1) navigate(-1);
