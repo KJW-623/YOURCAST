@@ -13,59 +13,59 @@ export default function MysteryCodex() {
 
     const chapters = [
         {
-            title: '一 ｜ B1',
+            title: '一 ｜ 地下',
             sections: ['로비', '백스테이지', '라이브 스테이지']
         },
         {
-            title: '二 ｜ 1F',
+            title: '二 ｜ 1階',
             sections: ['로비', '카페 시나몬']
         },
         {
-            title: '三 ｜ 5F',
+            title: '三 ｜ 5階',
             sections: ['배움터', '대도구실']
         },
         {
-            title: '四 ｜ 6F',
+            title: '四 ｜ 6階',
             sections: ['의상룸']
         },
         {
-            title: '五 ｜ 7F',
+            title: '五 ｜ 7階',
             sections: ['NEW DIMENSION', '의무실']
         },
         {
-            title: '六 ｜ 8F',
+            title: '六 ｜ 8階',
             sections: ['녹화부스', '보컬룸', '샤워룸', '연주스튜디오', '간이스튜디오']
         },
         {
-            title: '七 ｜ 9F',
+            title: '七 ｜ 9階',
             sections: ['댄스룸 밀집구역']
         },
         {
-            title: '八 ｜ 10F',
+            title: '八 ｜ 10階',
             sections: ['미팅룸', '사원식당']
         },
         {
-            title: '九 ｜ 12F',
+            title: '九 ｜ 12階',
             sections: ['RHYTHM LINK', '공중정원']
         },
         {
-            title: '十 ｜ 15F',
+            title: '十 ｜ 15階',
             sections: ['트레이닝룸', '스탠드 앞']
         },
         {
-            title: '十一 ｜ 18F',
+            title: '十一 ｜ 18階',
             sections: ['COSMIC PRODUCTION']
         },
         {
-            title: '十二 ｜ 19F',
+            title: '十二 ｜ 19階',
             sections: ['레스팅룸']
         },
         {
-            title: '十三 ｜ 20F',
+            title: '十三 ｜ 20階',
             sections: ['STARMAKER PRODUCTION', '응접실']
         },
         {
-            title: '十四 ｜ H',
+            title: '十四 ｜ 屋上',
             sections: ['헬리포트']
         }
     ];

@@ -21,59 +21,52 @@ export default function CodexReader() {
     // 데이터
     const chapters = useMemo(() => ([
         {
-            title: '一 ｜ B1',
+            title: '一 ｜ 地下',
             sections: [
                 {
                     name: '로비',
                     pages: [
-                        '복도 끝에서부터 일정한 간격의 발소리가 난다. 멈추면 같이 멈춘다.',
-                        '접수대 표면엔 긁힌 흔적: “올라가지 마…” — 글씨는 계속 얕아진다.',
-                        '엘리베이터 거울 속 네 모습과 너는 몇 프레임 어긋나 있다.',
+                        '복도 끝에서부터 일정한 간격의 발소리가 난다. 멈추면 같이 멈춘다.'
                     ],
                 },
                 {
                     name: '백스테이지',
                     pages: [
-                        '조명이 꺼져 있을 때만 보이는 경로 표시가 있다. 불을 끄면 문이 가까워진다.',
-                        '도면상 창고는 2칸인데 실제론 3칸이다. 세 번째 칸은 다시 닫아두어라.',
+                        '조명이 꺼져 있을 때만 보이는 경로 표시가 있다. 불을 끄면 문이 가까워진다.'
                     ],
                 },
                 {
                     name: '라이브 스테이지',
                     pages: [
-                        '관객석은 비어 있으나 무대 위 마이크가 호흡을 센다. “하나, 둘…”',
-                        '무대 오르막의 발판 다섯째는 없는 것처럼 밟혀야 한다.',
+                        '관객석은 비어 있으나 무대 위 마이크가 호흡을 센다. “하나, 둘…”'
                     ],
                 },
             ],
         },
         {
-            title: '二 ｜ 1F',
+            title: '二 ｜ 1階',
             sections: [
                 {
                     name: '로비',
                     pages: [
-                        '안내 데스크 위 명패의 이름은 네가 생각한 것과 다르다. 그 이름을 말하지 말 것.',
-                        '입구 CCTV는 들어오는 사람만 기록한다. 나가는 장면은 없다.',
+                        '안내 데스크 위 명패의 이름은 네가 생각한 것과 다르다. 그 이름을 말하지 말 것.'
                     ],
                 },
                 {
                     name: '카페 시나몬',
                     pages: [
-                        '메뉴판 마지막 줄이 깜빡인다. 보이는 대로 주문하지 말고, 네가 본 대로 주문하라.',
-                        '컵 가장자리에 남은 흔적이 두 겹이면 너는 혼자가 아니다.',
+                        '메뉴판 마지막 줄이 깜빡인다. 보이는 대로 주문하지 말고, 네가 본 대로 주문하라.'
                     ],
                 },
             ],
         },
         {
-            title: '三 ｜ 5F',
+            title: '三 ｜ 5階',
             sections: [
                 {
                     name: '배움터',
                     pages: [
-                        '칠판에는 아무것도 적히지 않았지만, 지워지는 소리가 난다.',
-                        '뒤에서 누가 대답하면 질문을 바꿔라. 정답은 네가 정한다.',
+                        '칠판에는 아무것도 적히지 않았지만, 지워지는 소리가 난다.'
                     ],
                 },
                 {
@@ -85,20 +78,20 @@ export default function CodexReader() {
             ],
         },
         {
-            title: '四 ｜ 6F',
+            title: '四 ｜ 6階',
             sections: [
                 { name: '의상룸', pages: ['옷걸이가 귓속말을 한다. “네가 고른 건 아니야.”'] },
             ],
         },
         {
-            title: '五 ｜ 7F',
+            title: '五 ｜ 7階',
             sections: [
                 { name: 'NEW DIMENSION', pages: ['창 없는 방에서만 빛이 새어 나온다.'] },
                 { name: '의무실', pages: ['대기번호는 항상 네 앞이다. 그러나 불리면 뒤를 본다.'] },
             ],
         },
         {
-            title: '六 ｜ 8F',
+            title: '六 ｜ 8階',
             sections: [
                 { name: '녹화부스', pages: ['마이크 테스트 음성이 다시 녹음 위로 올라탄다.'] },
                 { name: '보컬룸', pages: ['고음에서 유리가 웃는다. 네가 먼저 내려와라.'] },
@@ -108,7 +101,7 @@ export default function CodexReader() {
             ],
         },
         {
-            title: '七 ｜ 9F',
+            title: '七 ｜ 9階',
             sections: [{ name: '댄스룸 밀집구역', pages: [
 `1. 레슨룸에 접근하는 경우, 내부에서는 격한 춤사위에 따른 『쿵쿵거림』이 감지될 수 있습니다.
 그러나 내부에 실제 인원이 존재하지 않는 사례가 보고되었으므로 주의가 필요합니다.
@@ -166,7 +159,7 @@ export default function CodexReader() {
         ] }],
         },
         {
-            title: '八 ｜ 10F',
+            title: '八 ｜ 10階',
             sections: [
                 { name: '미팅룸', pages: ['의자 개수는 사람 수보다 하나 많다. 남는 자리에 앉지 마라.'] },
                 { name: '사원식당', pages: [
@@ -243,7 +236,7 @@ R군은 약 75분간 만담꾼과 대화를 나눈 뒤 현실과 괴이 간의 �
             ],
         },
         {
-            title: '九 ｜ 12F',
+            title: '九 ｜ 12階',
             sections: [
                 { name: 'RHYTHM LINK', pages: [
         `리즈링에서는 특정한 행위가 존재하기 전까지 안전하다고 파악됨.
@@ -273,18 +266,18 @@ R군은 약 75분간 만담꾼과 대화를 나눈 뒤 현실과 괴이 간의 �
             ],
         },
         {
-            title: '十 ｜ 15F',
+            title: '十 ｜ 15階',
             sections: [
                 { name: '트레이닝룸', pages: ['러닝머신 속도는 네 심박과 협상한다. 네가 진다.'] },
                 { name: '스탠드 앞', pages: ['불빛 아래 그림자가 버티면, 불을 끄고 기다려라.'] },
             ],
         },
         {
-            title: '十一 ｜ 18F',
+            title: '十一 ｜ 18階',
             sections: [{ name: 'COSMIC PRODUCTION', pages: ['빈 데스크에만 계약서가 놓인다. 빈 곳에 사인하지 마라.'] }],
         },
         {
-            title: '十二 ｜ 19F',
+            title: '十二 ｜ 19階',
             sections: [{ name: '레스팅룸', pages:  [
 `잠이 먼저 오면 네가 아닌 것이 깨어난다.\n
 현재 귀하께서 계신 레스팅룸은 연구 결과, 단순히 휴게용으로 이용할 경우 뚜렷한 위협 요소가 없는 것으로 확인되었습니다. 단, 해당 공간은 조사가 이루어지지 않았으므로 차후 위협이 될 요소가 발생할 수 있음에 유의 바라며, 해당 상황 발생 시 지침서를 업데이트해주시기 바랍니다.\n
@@ -359,7 +352,7 @@ U씨는 회계부 소속 직원으로, 정기 결산 마감 전날 장시간 야
             ] }],
         },
         {
-            title: '十三 ｜ 20F',
+            title: '十三 ｜ 20階',
             sections: [
                 {
                     name: 'STARMAKER PRODUCTION',
@@ -432,7 +425,7 @@ U씨는 회계부 소속 직원으로, 정기 결산 마감 전날 장시간 야
             ],
         },
         {
-            title: '十四 ｜ H',
+            title: '十四 ｜ 屋上',
             sections: [{
                 name: '헬리포트', pages: [
                     `옥상 진입 시 일정 확률로 누군가 난간 너머로 떨어지는 걸 볼 수 있음. 이때 떨어지는 인원이 익숙한 낯이라고 여러 차례 증언된 바 있으니 주의할 것.
@@ -522,8 +515,6 @@ U씨는 회계부 소속 직원으로, 정기 결산 마감 전날 장시간 야
                         <button className="sec" onClick={() => document.getElementById('sec-menu')?.showModal()}>
                             {chapters[ch].sections[sec].name}
                         </button>
-                        <span className="sep">/</span>
-                        <span className="pg">{page + 1} / {pages.length}</span>
                     </div>
                     <button className="mini" onClick={() => nav('/manual')}>지침서 메인</button>
                 </div>
@@ -531,7 +522,7 @@ U씨는 회계부 소속 직원으로, 정기 결산 마감 전날 장시간 야
                 {/* 섹션 점프 다이얼로그 */}
                 <dialog id="sec-menu" className="sec-menu" onClick={(e) => e.target.id === 'sec-menu' && e.currentTarget.close()}>
                     <div className="sec-menu-body">
-                        <h3>섹션 이동</h3>
+                        <h3>장소 이동</h3>
                         <ul>
                             {chapters[ch].sections.map((s, i) => (
                                 <li key={i}>
