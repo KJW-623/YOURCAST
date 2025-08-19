@@ -15,11 +15,11 @@ export default function Floor15Hub() {
                 <div className="hub-grid">
                     <button className="hub-card" onClick={() => navigate('/manual/15f/15/training')}>
                         <div className="hub-title">트레이닝 룸</div>
-                        <div className="hub-sub">카운트 / 미러 체크</div>
+                        <div className="hub-sub">체력 단련</div>
                     </button>
                     <button className="hub-card" onClick={() => navigate('/manual/15f/15/stand')}>
                         <div className="hub-title">스탠드 앞</div>
-                        <div className="hub-sub">조명 스탠드 / 잔상</div>
+                        <div className="hub-sub">휴식</div>
                     </button>
                 </div>
             </div>
