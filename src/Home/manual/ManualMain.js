@@ -26,7 +26,7 @@ const ManualMain = () => {
 
         {/* ??? */}
         <div className="button-wrapper left" style={{ top: '42%', left: '10%' }}>
-          <div className="floor-button" onClick={() => navigate('/manual/mystery')}> ■■■ </div>
+          <div className="floor-button" onClick={() => navigate('/error')}> ■■■ </div>
         </div>
 
         {/* 9~12F */}

@@ -2,14 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './CodexReader.css';
 
-/**
- * 코덱스 리더
- * - 좌/우 버튼, 키보드(←/→), 스와이프(터치)로 페이지 넘김
- * - 하단 챕터바(빠른 이동)
- * - 챕터(층) 내 섹션(장소) → 각 섹션의 페이지(문단/지침)
- * - 쿼리 파라미터로 진입: ?ch=0&sec=0&page=0 (없으면 0)
- */
-
 export default function CodexReader() {
     const nav = useNavigate();
     const { search } = useLocation();
@@ -18,7 +10,6 @@ export default function CodexReader() {
     const initialSec = Math.max(0, parseInt(params.get('sec') ?? '0', 10));
     const initialPage = Math.max(0, parseInt(params.get('page') ?? '0', 10));
 
-    // 데이터
     const chapters = useMemo(() => ([
         {
             title: '一 ｜ 地下',

@@ -57,6 +57,7 @@ body {
     padding: 16px 16px 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, .9), inset 0 0 120px rgba(0, 0, 0, .6);
     position: relative;
+    margin-bottom: 40px;
 }
 
 /* ───────────────── 헤더(크럼브) ───────────────── */
