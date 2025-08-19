@@ -1,43 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Gowun+Dodum&display=swap');
 
+/* 전역: 사이트 스크롤 잠금 */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    /* 🔒 전역 스크롤 제거 */
+    overscroll-behavior: none;
+}
+
+* {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+/* ───────────────── 배경/래퍼 ───────────────── */
 .reader-wrap {
-    min-height: 100vh;
+    height: 100vh;
     background: #000;
     display: grid;
     place-items: center;
     padding: 5vh 2vw;
-    /* 스캔라인/노이즈 */
-    background-image:
-        repeating-linear-gradient(0deg, rgba(0, 0, 0, 1) 0 2px, rgba(12, 12, 12, 1) 2px 4px);
+    background-image: repeating-linear-gradient(0deg, #000 0 2px, #0c0c0c 2px 4px);
     animation: crt-noise .25s infinite;
 }
 
 @keyframes crt-noise {
     0% {
-        background-position: 0 0;
+        background-position: 0 0
     }
 
     50% {
-        background-position: 3px 6px;
+        background-position: 3px 6px
     }
 
     100% {
-        background-position: -3px -6px;
+        background-position: -3px -6px
     }
 }
 
+/* 프레임(전체 카드) */
 .reader-frame {
     width: min(980px, 96vw);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
     background: radial-gradient(120% 120% at 50% 0%, #0a0a0a 0%, #000 60%);
     border: 1px solid rgba(255, 255, 255, .08);
     border-radius: 16px;
     padding: 16px 16px 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, .9), inset 0 0 120px rgba(0, 0, 0, .6);
     position: relative;
-    overflow: hidden;
 }
 
+/* ───────────────── 헤더(크럼브) ───────────────── */
 .reader-head {
+    flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,68 +71,149 @@
     margin-bottom: 10px;
 }
 
+/* 크럼브 기본 */
 .reader-head .crumb {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     color: #d8eae6;
     font: 600 13px/1 'Gowun Dodum', sans-serif;
     letter-spacing: .08em;
+    text-shadow: 0 0 6px rgba(160, 255, 250, .08);
 }
 
 .reader-head .crumb .ch {
     color: #ff6a6a;
-}
-
-.reader-head .crumb .sec {
-    color: #9ce7df;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-shadow: 0 0 6px rgba(255, 0, 0, .25)
 }
 
 .reader-head .crumb .pg {
-    color: #bbb;
+    color: #a9b0b0;
 }
 
 .reader-head .crumb .sep {
-    opacity: .5;
+    opacity: .45
 }
 
+/* 섹션 버튼을 괴기스러운 언더라인+글리치 */
+.reader-head .crumb .sec {
+    position: relative;
+    color: #aef7ef;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: .08em;
+    text-underline-offset: 4px;
+    padding: 2px 0;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, .15));
+    transition: transform .12s ease;
+}
+
+.reader-head .crumb .sec:focus-visible {
+    outline: 2px dashed rgba(0, 255, 255, .35);
+    outline-offset: 3px;
+}
+
+/* 네온 언더라인 */
+.reader-head .crumb .sec::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9ff 15%, #0ff 45%, #9ff 85%, transparent);
+    opacity: .85;
+    transform: scaleX(.6);
+    transition: transform .18s ease, filter .18s ease;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, .35));
+}
+
+.reader-head .crumb .sec:hover {
+    transform: translateY(-1px);
+}
+
+.reader-head .crumb .sec:hover::after {
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, .45));
+}
+
+/* 가벼운 글리치 흔들림 */
+@keyframes tiny-glitch {
+    0% {
+        transform: translate(0)
+    }
+
+    25% {
+        transform: translate(-.2px, .2px)
+    }
+
+    50% {
+        transform: translate(.2px, -.2px)
+    }
+
+    75% {
+        transform: translate(.1px, .1px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}
+
+.reader-head .crumb .sec:hover {
+    animation: tiny-glitch .3s steps(2) 1
+}
+
+/* 버튼 */
 .mini {
     appearance: none;
+    cursor: pointer;
+    transition: .2s;
     font: 600 12px/1 'Gowun Dodum', sans-serif;
     padding: 8px 10px;
     color: #e8e8e8;
-    background: rgba(255, 255, 255, .04);
+    background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
     border: 1px solid rgba(255, 255, 255, .12);
     border-radius: 8px;
-    cursor: pointer;
-    transition: .2s;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .02), 0 0 0 0 rgba(255, 0, 0, 0);
 }
 
 .mini:hover {
-    background: rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .1)
 }
 
 .mini.ghost {
     background: rgba(255, 255, 255, .02);
-    border-color: rgba(255, 255, 255, .08);
+    border-color: rgba(255, 255, 255, .08)
 }
 
+.mini:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 0 2px rgba(255, 0, 60, .15)
+}
+
+/* ───────────────── 본문 무대 ───────────────── */
 .page-stage {
-    position: relative;
-    height: min(48vh, 480px);
-    display: grid;
-    place-items: center;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     perspective: 1400px;
+    position: relative;
 }
 
+/* 페이지 카드 */
 .page {
     width: min(880px, 90vw);
     height: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background: linear-gradient(90deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .04) 12%, rgba(255, 255, 255, .02) 88%, rgba(255, 255, 255, .01));
     border: 1px solid rgba(255, 255, 255, .08);
     border-radius: 12px;
@@ -116,7 +221,6 @@
     color: #ddd;
     font-family: 'Gowun Dodum', sans-serif;
     position: relative;
-    overflow: hidden;
     box-shadow: inset 0 0 40px rgba(0, 0, 0, .5);
     transform-origin: left center;
 }
@@ -125,14 +229,21 @@
     content: "";
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background: radial-gradient(120% 180% at 0% 50%, rgba(0, 0, 0, .35), transparent 60%),
         linear-gradient(to left, rgba(0, 0, 0, .25), transparent 35%);
-    pointer-events: none;
 }
 
-.page header {
+/* 상단 제목(고정) */
+.page>header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     text-align: center;
     margin-bottom: 8px;
+    padding-bottom: 6px;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(2px);
 }
 
 .page header h1 {
@@ -153,27 +264,40 @@
     margin: 6px 0 0;
 }
 
+/* 실제 스크롤 되는 본문 컨테이너 */
+.page-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-right: 12px;
+}
+
+/* 본문 텍스트 */
+.page-text,
 .page p {
     margin: 12px auto 0;
     max-width: 72ch;
-    line-height: 1.65;
     font-size: clamp(14px, 1.8vw, 16px);
+    white-space: pre-wrap;
+    line-height: 1.8;
 }
 
 /* 넘김 애니메이션 */
 .turn-in {
-    animation: turnIn .55s ease both;
+    animation: turnIn .55s ease both
 }
 
 @keyframes turnIn {
     0% {
         transform: rotateY(-12deg) translateX(-8px);
-        opacity: 0;
+        opacity: 0
     }
 
     100% {
         transform: rotateY(0) translateX(0);
-        opacity: 1;
+        opacity: 1
     }
 }
 
@@ -201,15 +325,18 @@
     display: grid;
     place-items: center;
     margin: 0 6px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0);
 }
 
 .nav-btn:hover {
     transform: translateY(-1px);
     background: rgba(255, 255, 255, .08);
+    box-shadow: 0 0 10px rgba(255, 0, 0, .15)
 }
 
-/* 하단 챕터 바 */
+/* ───────────────── 챕터 바(가로 스크롤 + 버튼) ───────────────── */
 .chapter-bar {
+    flex: 0 0 auto;
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, .06);
@@ -221,30 +348,69 @@
     scrollbar-width: thin;
 }
 
+/* 챕터 칩 버튼 (네온) */
 .chapter-chip {
     font: 600 12px/1 'Gowun Dodum', sans-serif;
     letter-spacing: .06em;
-    color: #cfd;
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 255, 170, .18);
-    background: rgba(0, 255, 170, .06);
+    color: #cfe;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 255, 170, .25);
+    background: radial-gradient(120% 160% at 20% 0%, rgba(0, 255, 170, .12), rgba(0, 255, 170, .06));
     cursor: pointer;
     white-space: nowrap;
-    transition: .18s;
+    transition: .16s;
+    box-shadow: inset 0 0 18px rgba(0, 255, 170, .08);
 }
 
 .chapter-chip:hover {
-    background: rgba(0, 255, 170, .12);
+    background: rgba(0, 255, 170, .17)
+}
+
+.chapter-chip:active {
+    transform: translateY(1px)
 }
 
 .chapter-chip.active {
     color: #111;
-    background: rgba(0, 255, 170, .85);
+    background: rgba(0, 255, 170, .9);
     border-color: rgba(0, 255, 170, 1);
+    box-shadow: 0 0 18px rgba(0, 255, 170, .3), inset 0 0 18px rgba(255, 255, 255, .2);
 }
 
-/* 섹션 메뉴 */
+/* ── 스크롤바 테마 (가로/세로 공통) ── */
+.page-content::-webkit-scrollbar,
+.chapter-bar::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.page-content::-webkit-scrollbar-track,
+.chapter-bar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .5);
+    border-left: 1px solid rgba(255, 0, 0, .18);
+}
+
+.page-content::-webkit-scrollbar-thumb,
+.chapter-bar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #a00, #600);
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(255, 0, 0, .45);
+}
+
+.page-content::-webkit-scrollbar-thumb:hover,
+.chapter-bar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f00, #800);
+}
+
+/* Firefox */
+.page-content,
+.chapter-bar {
+    scrollbar-color: #7b0a0a rgba(0, 0, 0, .55);
+    scrollbar-width: thin;
+}
+
+/* ───────────────── 섹션 점프 다이얼로그 ───────────────── */
 .sec-menu {
     border: none;
     border-radius: 12px;
@@ -254,19 +420,19 @@
 }
 
 .sec-menu::backdrop {
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .6)
 }
 
 .sec-menu-body {
     padding: 16px;
-    min-width: 280px;
+    min-width: 280px
 }
 
 .sec-menu-body h3 {
     margin: 0 0 10px;
     color: #e8e8e8;
     font-family: 'IM Fell English SC', serif;
-    letter-spacing: .06em;
+    letter-spacing: .06em
 }
 
 .sec-menu-body ul {
@@ -274,7 +440,7 @@
     padding: 0;
     margin: 0 0 12px;
     display: grid;
-    gap: 6px;
+    gap: 6px
 }
 
 .sec-menu-body li button {
@@ -291,9 +457,9 @@
 }
 
 .sec-menu-body li button:hover {
-    background: rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .08)
 }
 
 .sec-menu .close {
-    width: 100%;
+    width: 100%
 }

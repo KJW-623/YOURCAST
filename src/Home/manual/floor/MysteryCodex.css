@@ -1,22 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Gowun+Dodum&display=swap');
 
+/* ─── 전역: 사이트 스크롤 잠금 ─── */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    /* 🔒 전역 스크롤 제거 */
+    overscroll-behavior: none;
+}
+
+* {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    /* 패딩으로 높이 넘침 방지 */
+}
+
+/* ─── 배경 래퍼 ─── */
 .codex-wrap {
-    min-height: 100vh;
+    height: 100vh;
+    /* 뷰포트 꽉 채움 */
     background: #000;
     display: grid;
     place-items: center;
     padding: 4vh 2vw;
+    background-image: repeating-linear-gradient(0deg, #000 0 2px, #0c0c0c 2px 4px);
+    animation: bg-noise .25s infinite;
 }
 
-/* CRT 프레임 */
+@keyframes bg-noise {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 4px 8px
+    }
+
+    100% {
+        background-position: -4px -8px
+    }
+}
+
+/* ─── CRT 프레임(내부 스크롤 컨테이너) ─── */
 .crt {
     width: min(960px, 94vw);
+    height: min(86vh, 820px);
+    /* 🔑 높이 제한 → 내부 스크롤 유도 */
+    display: flex;
+    flex-direction: column;
+    /* 위: 타이틀, 가운데: 본문(스크롤), 아래: 액션 */
+    overflow: hidden;
+    /* 프레임 자체 스크롤 제거 */
+
     background: rgba(10, 10, 10, 0.85);
     border-radius: 12px;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 0 40px rgba(255, 0, 0, 0.08),
-        0 0 80px rgba(0, 0, 0, 0.9);
+    padding: 18px;
+    /* 살짝 줄여 내부 여유 확보 */
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: inset 0 0 40px rgba(255, 0, 0, .08), 0 0 80px rgba(0, 0, 0, .9);
     animation: flicker 2s infinite;
 }
 
@@ -36,27 +81,35 @@
     20%,
     24%,
     55% {
-        opacity: 0.88
+        opacity: .88
     }
 }
 
-/* 타이틀 */
+/* ─── 상단 타이틀(고정) ─── */
 .codex-title {
+    flex: 0 0 auto;
+    /* 고정 영역 */
     font-family: 'IM Fell English SC', serif;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0 0 12px;
     color: #e45;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 10px rgba(255, 0, 0, .4);
 }
 
-/* 목차 본문 */
+/* ─── 본문(여기만 스크롤) ─── */
 .codex-body {
+    flex: 1 1 auto;
+    /* 남은 공간 전부 사용 */
+    min-height: 0;
+    /* 🔑 내부 스크롤 허용 */
+    overflow-y: auto;
+    /* 🔥 내부 스크롤 */
+    overflow-x: hidden;
+    padding: 8px 8px 12px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-    display: grid;
-    gap: 20px;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s ease;
 }
 
 .codex-body.show {
@@ -64,12 +117,13 @@
     transform: translateY(0);
 }
 
+/* 챕터/항목 */
 .codex-chapter h2 {
     font-family: 'IM Fell English SC', serif;
     color: #cfcfcf;
     font-size: 1.2rem;
-    margin-bottom: 6px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    margin: 14px 0 6px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, .2);
 }
 
 .codex-chapter ul {
@@ -80,7 +134,7 @@
 .codex-chapter li {
     font-family: 'Gowun Dodum', sans-serif;
     color: #aaa;
-    font-size: 0.95rem;
+    font-size: .95rem;
     margin-bottom: 4px;
     position: relative;
 }
@@ -90,35 +144,73 @@
     position: absolute;
     left: -1rem;
     color: #ff5555;
-    text-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+    text-shadow: 0 0 6px rgba(255, 0, 0, .6);
 }
 
-/* 액션 버튼 */
+/* ─── 하단 액션(고정) ─── */
 .codex-actions {
+    flex: 0 0 auto;
+    /* 고정 영역 */
     display: flex;
     justify-content: space-between;
-    margin-top: 24px;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .35));
 }
 
+/* 버튼 */
 .btn {
     appearance: none;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: .2s ease;
+    font-family: 'Gowun Dodum', sans-serif;
+    border: 1px solid rgba(255, 255, 255, .12);
     padding: 8px 14px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, .05);
     color: #ddd;
-    cursor: pointer;
-    transition: 0.2s ease;
-    font-family: 'Gowun Dodum', sans-serif;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .02);
 }
 
 .btn:hover {
-    background: rgba(255, 0, 0, 0.1);
-    border-color: rgba(255, 0, 0, 0.4);
+    background: rgba(255, 0, 0, .1);
+    border-color: rgba(255, 0, 0, .4);
     color: #fff;
 }
 
 .btn.proceed {
-    border-color: rgba(0, 255, 170, 0.2);
-    box-shadow: inset 0 0 12px rgba(0, 255, 170, 0.08);
+    border-color: rgba(0, 255, 170, .25);
+    box-shadow: inset 0 0 12px rgba(0, 255, 170, .12), 0 0 10px rgba(0, 255, 170, .08);
+}
+
+.btn:active {
+    transform: translateY(1px)
+}
+
+/* ─── 스크롤바 테마(내부 본문에만 적용) ─── */
+.codex-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.codex-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .55);
+    border-left: 1px solid rgba(255, 0, 0, .18);
+}
+
+.codex-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #a00, #600);
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(255, 0, 0, .45);
+}
+
+.codex-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f00, #800);
+}
+
+/* Firefox */
+.codex-body {
+    scrollbar-color: #7b0a0a rgba(0, 0, 0, .55);
+    scrollbar-width: thin;
 }
